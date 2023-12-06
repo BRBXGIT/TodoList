@@ -15,9 +15,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -45,8 +47,6 @@ fun MainScreen() {
         Font(R.font.ubuntu_light, FontWeight.Light),
         Font(R.font.ubuntu_medium, FontWeight.Medium),
     )
-
-
 
     //Main box with gradient
     Box(
@@ -95,12 +95,14 @@ fun MainScreen() {
                         )
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Add todo icon"
+                            painter = painterResource(id = R.drawable.add_todo_icon),
+                            contentDescription = "Add todo icon",
+                            Modifier.size(30.dp)
                         )
                     }
                 }
             }
+
             var dayOfTheWeek = LocalDate.now().dayOfWeek.toString()
 
             if(dayOfTheWeek == "WEDNESDAY") {
@@ -146,6 +148,25 @@ fun MainScreen() {
                         )
                     }
                     //Date box
+
+                    val dayOfMonth = LocalDate.now().dayOfMonth.toString()
+                    var month = LocalDate.now().month.toString()
+
+                    when(month) {
+                        "JANUARY" -> month = "JAN"
+                        "FEBRUARY" -> month = "FEB"
+                        "MARCH" -> month = "MAR"
+                        "APRIL" -> month = "APR"
+                        "MAY" -> month = "MAY"
+                        "JUNE" -> month = "JUNE"
+                        "JULY" -> month = "JULY"
+                        "AUGUST" -> month = "AUG"
+                        "SEPTEMBER" -> month = "SEPT"
+                        "OCTOBER" -> month = "OCT"
+                        "NOVEMBER" -> month = "NOV"
+                        "DECEMBER" -> month = "DEC"
+                    }
+
                     Box(
                         modifier = Modifier
                             .fillMaxSize(0.7f),
@@ -156,14 +177,14 @@ fun MainScreen() {
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = "27\n",
+                                text = "$dayOfMonth\n",
                                 color = Color.White,
                                 fontFamily = fontFamily,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 90.sp,
                             )
                             Text(
-                                text = "JUN",
+                                text = month,
                                 color = Color.Black,
                                 fontFamily = fontFamily,
                                 fontWeight = FontWeight.Bold,
@@ -174,6 +195,15 @@ fun MainScreen() {
                         }
                     }
                 }
+            }
+            //Box with todos
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 24.dp, end = 24.dp),
+                contentAlignment = Alignment.Center
+            ) {
+
             }
         }
     }
