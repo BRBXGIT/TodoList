@@ -1,0 +1,29 @@
+[33mcommit e0ee12f9f4fde39b50060d3e5e5765a3211713d4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: BRBX <egorka2005sautkin@gmail.com>
+Date:   Wed Dec 6 14:22:06 2023 +0300
+
+    main screen without todos ready
+
+[33mcommit e78c8d8fe160e339b04e9f745c9f730bddc93483[m
+Author: BRBX <egorka2005sautkin@gmail.com>
+Date:   Wed Dec 6 13:53:29 2023 +0300
+
+    not so important commit, just mini bugfix
+
+[33mcommit b76b6418f4f4200dc8d484499cf445aa95234d8a[m
+Author: BRBX <egorka2005sautkin@gmail.com>
+Date:   Wed Dec 6 00:27:00 2023 +0300
+
+    almost create main_screen ui, need to add lazycolumn
+
+[33mcommit f001d46556a1a666a57f97aa776ea47e60fd067f[m
+Author: BRBX <egorka2005sautkin@gmail.com>
+Date:   Tue Dec 5 12:43:47 2023 +0300
+
+    add main_screen Composable file
+
+[33mcommit fd2bdcf2ef909f374630f865ef34f039e11b44aa[m
+Author: BRBX <egorka2005sautkin@gmail.com>
+Date:   Tue Dec 5 12:41:58 2023 +0300
+
+    empty project
