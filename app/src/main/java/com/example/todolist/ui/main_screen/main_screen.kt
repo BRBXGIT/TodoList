@@ -1,5 +1,6 @@
 package com.example.todolist.ui.main_screen
 
+import android.util.Log
 import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,6 +34,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todolist.R
+import java.time.LocalDate
+import java.util.Calendar
 
 @Composable
 fun MainScreen() {
@@ -42,6 +45,8 @@ fun MainScreen() {
         Font(R.font.ubuntu_light, FontWeight.Light),
         Font(R.font.ubuntu_medium, FontWeight.Medium),
     )
+
+
 
     //Main box with gradient
     Box(
@@ -96,7 +101,15 @@ fun MainScreen() {
                     }
                 }
             }
-            //Date box
+            var dayOfTheWeek = LocalDate.now().dayOfWeek.toString()
+
+            if(dayOfTheWeek == "WEDNESDAY") {
+                dayOfTheWeek = "WED"
+            } else {
+                dayOfTheWeek = dayOfTheWeek.dropLast(3)
+            }
+
+            //Day of the week and date box
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -114,7 +127,7 @@ fun MainScreen() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            text = "SUN",
+                            text = dayOfTheWeek,
                             fontSize = 100.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = fontFamily,
@@ -132,13 +145,14 @@ fun MainScreen() {
                                 .alpha(0.2f)
                         )
                     }
+                    //Date box
                     Box(
                         modifier = Modifier
                             .fillMaxSize(0.7f),
                         contentAlignment = Alignment.Center
                     ) {
                         Column(
-                            verticalArrangement = Arrangement.spacedBy(-80.dp),
+                            verticalArrangement = Arrangement.spacedBy((-90).dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
@@ -147,11 +161,9 @@ fun MainScreen() {
                                 fontFamily = fontFamily,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 90.sp,
-                                modifier = Modifier
-                                    .padding(bottom = 32.dp)
                             )
                             Text(
-                                text = "FEB",
+                                text = "JUN",
                                 color = Color.Black,
                                 fontFamily = fontFamily,
                                 fontWeight = FontWeight.Bold,

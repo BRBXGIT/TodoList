@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.todolist"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -50,6 +50,9 @@ android {
 }
 
 dependencies {
+
+    //For date
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.9")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
