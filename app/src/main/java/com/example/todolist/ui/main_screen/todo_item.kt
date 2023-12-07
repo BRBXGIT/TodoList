@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todolist.R
+import java.time.LocalDate
 
 @Composable
 fun TodoItem() {
@@ -40,6 +41,7 @@ fun TodoItem() {
         Font(R.font.ubuntu_medium, FontWeight.Medium),
     )
 
+    //Main row
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -48,15 +50,15 @@ fun TodoItem() {
             .shadow(5.dp)
             .background(Color(0xFFD88EDD))
     ) {
+        //Box with date
         Box(
             modifier = Modifier
                 .fillMaxHeight()
-                .fillMaxWidth(0.12f)
                 .background(Color(0xFFC27FC6)),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "6 DE",
+                text = "7 DEC",
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontFamily = fontFamily,
@@ -66,6 +68,7 @@ fun TodoItem() {
                     .alpha(0.7f)
             )
         }
+        //Row with to_do information
         Row(
             modifier = Modifier
                 .fillMaxSize()
