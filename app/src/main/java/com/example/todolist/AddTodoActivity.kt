@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.room.Room
-import com.example.todolist.data.TodoDb
-import com.example.todolist.ui.main_screen.MainScreen
+import com.example.todolist.ui.add_todo_screen.AddTodo
 import com.example.todolist.ui.theme.TodoListTheme
 
-class MainActivity : ComponentActivity() {
+class AddTodoActivity : ComponentActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +20,8 @@ class MainActivity : ComponentActivity() {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
                 )
-                MainScreen()
+
+                AddTodo()
             }
         }
     }

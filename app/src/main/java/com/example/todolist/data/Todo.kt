@@ -11,5 +11,6 @@ data class Todo(
     val title: String,
     val startTime: String,
     val endTime: String,
+    val date: String,
     val isChecked: Boolean
 )

@@ -1,5 +1,10 @@
 package com.example.todolist.ui.main_screen
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,13 +26,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.todolist.AddTodoActivity
 import com.example.todolist.R
+import com.example.todolist.data.TodoDao
+import com.example.todolist.data.TodoDb
+import com.example.todolist.ui.add_todo_screen.AddTodo
 import java.time.LocalDate
 
 @Composable
@@ -38,6 +48,8 @@ fun MainScreen() {
         Font(R.font.ubuntu_light, FontWeight.Light),
         Font(R.font.ubuntu_medium, FontWeight.Medium),
     )
+
+    val context = LocalContext.current as Activity
 
     //Main box with gradient
     Box(
@@ -74,8 +86,11 @@ fun MainScreen() {
                     )
 
                     //Add to_do button
+                    val context = LocalContext.current
                     ElevatedButton(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            context.startActivity(Intent(context, AddTodoActivity::class.java))
+                        },
                         modifier = Modifier
                             .size(60.dp)
                             .alpha(0.9f),

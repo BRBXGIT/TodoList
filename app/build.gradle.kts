@@ -52,12 +52,17 @@ android {
 
 dependencies {
 
+    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     //For date
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.9")
 
     //Room db implementations
     implementation("androidx.room:room-ktx:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
+
+    //For viewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
