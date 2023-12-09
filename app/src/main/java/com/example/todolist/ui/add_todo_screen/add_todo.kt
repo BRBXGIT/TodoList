@@ -1,5 +1,6 @@
 package com.example.todolist.ui.add_todo_screen
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,18 +31,22 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.todolist.MainActivity
 import com.example.todolist.R
 import com.example.todolist.data.TodoDao
 import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarSelection
 import com.maxkeppeler.sheets.clock.ClockDialog
+import com.maxkeppeler.sheets.clock.models.ClockConfig
 import com.maxkeppeler.sheets.clock.models.ClockSelection
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -76,7 +81,10 @@ fun AddTodo(
         state = startClockState,
         selection = ClockSelection.HoursMinutes { hours, minutes ->
             chosenStartTime = "$hours:$minutes"
-        }
+        },
+        config = ClockConfig(
+            is24HourFormat = true
+        )
     )
 
     val endClockState = rememberSheetState()
@@ -86,7 +94,10 @@ fun AddTodo(
         state = endClockState,
         selection = ClockSelection.HoursMinutes { hours, minutes ->
             chosenEndTime = "$hours:$minutes"
-        }
+        },
+        config = ClockConfig(
+            is24HourFormat = true
+        )
     )
 
     Box(
@@ -106,17 +117,28 @@ fun AddTodo(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.8f)
+                .fillMaxHeight(0.6f)
                 .clip(RoundedCornerShape(20.dp))
                 .background(Color(0x607F5885))
                 .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {
-            var todoTitle by remember { mutableStateOf("") }
 
+            Text(
+                text = "Configure your todo",
+                fontWeight = FontWeight.Bold,
+                fontFamily = fontFamily,
+                color = Color.White,
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .alpha(0.8f)
+                    .align(Alignment.TopCenter)
+            )
+
+            var todoTitle by remember { mutableStateOf("") }
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 OutlinedTextField(
                     value = todoTitle,
@@ -231,9 +253,17 @@ fun AddTodo(
             }
 
             //Create to_do button
+            val context = LocalContext.current
             Button(
                 onClick = {
-                    addTodoViewModel.upsertNewTodo(dao = dao)
+                    addTodoViewModel.upsertNewTodo(
+                        dao = dao,
+                        startTime = chosenStartTime,
+                        endTime = chosenEndTime,
+                        date = chosenDate,
+                        title = todoTitle
+                    )
+                    context.startActivity(Intent(context, MainActivity::class.java))
                 },
                 modifier = Modifier
                     .align(Alignment.BottomCenter),

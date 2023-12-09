@@ -25,6 +25,7 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,7 +51,7 @@ import com.example.todolist.ui.add_todo_screen.AddTodo
 import java.time.LocalDate
 
 @Composable
-fun MainScreen() {
+fun MainScreen(dao: TodoDao) {
 
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
@@ -58,7 +59,7 @@ fun MainScreen() {
         Font(R.font.ubuntu_medium, FontWeight.Medium),
     )
 
-    val context = LocalContext.current as Activity
+    val todos = dao.getAllTodos().collectAsState(initial = emptyList())
 
     //Main box with gradient
     Box(
@@ -217,13 +218,37 @@ fun MainScreen() {
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
-                items(2) {
+                items(todos.value) { todo ->
+
+                    val dayOfTodo = LocalDate.parse(todo.date).dayOfMonth.toString()
+                    var monthOfTodo = LocalDate.parse(todo.date).month.toString()
+                    when(monthOfTodo) {
+                        "JANUARY" -> monthOfTodo = "JAN"
+                        "FEBRUARY" -> monthOfTodo = "FEB"
+                        "MARCH" -> monthOfTodo = "MAR"
+                        "APRIL" -> monthOfTodo = "APR"
+                        "MAY" -> monthOfTodo = "MAY"
+                        "JUNE" -> monthOfTodo = "JUNE"
+                        "JULY" -> monthOfTodo = "JULY"
+                        "AUGUST" -> monthOfTodo = "AUG"
+                        "SEPTEMBER" -> monthOfTodo = "SEPT"
+                        "OCTOBER" -> monthOfTodo = "OCT"
+                        "NOVEMBER" -> monthOfTodo = "NOV"
+                        "DECEMBER" -> monthOfTodo = "DEC"
+                    }
+                    var dayOfTodoWithMonth = "$dayOfTodo $monthOfTodo"
+
                    Box(
                        modifier = Modifier
                            .fillMaxWidth()
                            .padding(start = 24.dp, end = 24.dp)
                    ) {
-                       TodoItem()
+                       TodoItem(
+                           todo.title,
+                           todo.endTime,
+                           dayOfTodoWithMonth,
+                           todo.startTime
+                       )
                    }
                 }
             }

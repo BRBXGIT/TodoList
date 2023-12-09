@@ -35,7 +35,12 @@ import androidx.compose.ui.zIndex
 import com.example.todolist.R
 
 @Composable
-fun TodoItem() {
+fun TodoItem(
+    title: String,
+    endTime: String,
+    date: String,
+    startTime: String
+) {
 
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
@@ -59,7 +64,7 @@ fun TodoItem() {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "7 DEC",
+                text = date,
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontFamily = fontFamily,
@@ -82,7 +87,7 @@ fun TodoItem() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Complete wireframes for Power-x",
+                    text = title,
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontFamily = fontFamily,
@@ -91,7 +96,7 @@ fun TodoItem() {
                         .alpha(0.7f)
                 )
                 Text(
-                    text = "12:00 - 17:30",
+                    text = "$startTime - $endTime",
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontFamily = fontFamily,
