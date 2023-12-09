@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -29,6 +31,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import com.example.todolist.R
 
 @Composable
@@ -44,9 +47,8 @@ fun TodoItem() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.2f)
-            .clip(RoundedCornerShape(5.dp))
-            .shadow(5.dp)
+            .height(90.dp)
+            .clip(RoundedCornerShape(10.dp))
             .background(Color(0xFFD88EDD))
     ) {
         //Box with date
