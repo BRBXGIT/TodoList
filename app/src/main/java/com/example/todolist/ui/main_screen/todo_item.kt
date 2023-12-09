@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -23,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -31,7 +29,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.zIndex
 import com.example.todolist.R
 
 @Composable
@@ -41,7 +38,6 @@ fun TodoItem(
     date: String,
     startTime: String
 ) {
-
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
         Font(R.font.ubuntu_light, FontWeight.Light),
@@ -68,7 +64,7 @@ fun TodoItem(
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontFamily = fontFamily,
-                fontSize = 15.sp,
+                fontSize = 12.sp,
                 modifier = Modifier
                     .rotate(-90f)
                     .alpha(0.7f)

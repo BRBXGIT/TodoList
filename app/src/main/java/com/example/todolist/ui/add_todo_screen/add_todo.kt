@@ -1,6 +1,7 @@
 package com.example.todolist.ui.add_todo_screen
 
 import android.content.Intent
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -81,6 +82,15 @@ fun AddTodo(
         state = startClockState,
         selection = ClockSelection.HoursMinutes { hours, minutes ->
             chosenStartTime = "$hours:$minutes"
+            if((chosenStartTime.split(":")[0].length < 2) and (chosenStartTime.split(":")[1].length < 2)) {
+                chosenStartTime = "0$hours:0$minutes"
+            }
+            if(chosenStartTime.split(":")[0].length < 2) {
+                chosenStartTime = "0$hours:$minutes"
+            }
+            if(chosenStartTime.split(":")[1].length < 2) {
+                chosenStartTime = "$hours:0$minutes"
+            }
         },
         config = ClockConfig(
             is24HourFormat = true
@@ -94,6 +104,15 @@ fun AddTodo(
         state = endClockState,
         selection = ClockSelection.HoursMinutes { hours, minutes ->
             chosenEndTime = "$hours:$minutes"
+            if((chosenEndTime.split(":")[0].length < 2) and (chosenEndTime.split(":")[1].length < 2)) {
+                chosenEndTime = "0$hours:0$minutes"
+            }
+            if(chosenEndTime.split(":")[0].length < 2) {
+                chosenEndTime = "0$hours:$minutes"
+            }
+            if(chosenEndTime.split(":")[1].length < 2) {
+                chosenEndTime = "$hours:0$minutes"
+            }
         },
         config = ClockConfig(
             is24HourFormat = true
