@@ -29,13 +29,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.todolist.R
 import com.example.todolist.data.TodoDao
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddTodo() {
+fun AddTodo(
+    addTodoViewModel: AddTodoViewModel = viewModel(),
+    dao: TodoDao
+) {
 
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
@@ -88,7 +93,7 @@ fun AddTodo() {
 
             Button(
                 onClick = {
-
+                    addTodoViewModel.upsertNewTodo(dao = dao)
                 },
                 modifier = Modifier
                     .align(Alignment.BottomCenter),
