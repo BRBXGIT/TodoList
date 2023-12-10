@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -264,17 +265,17 @@ fun MainScreen(dao: TodoDao) {
                     )
 
                     val animatedBackgroundColorForIcon by animateColorAsState(
-                        targetValue = if(todo.isChecked) Color(0x99FFFFFF) else Color(0xFF8B618F),
+                        targetValue = if(todo.isChecked) Color(0x70FFFFFF) else Color(0xFF8B618F),
                         label = "Animated color for todo background"
                     )
 
                     val animatedBackgroundColorForIconBox by animateColorAsState(
-                        targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0x00FFFFFF),
+                        targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0x00),
                         label = "Animated color for todo background"
                     )
 
                     val animatedBackgroundColorForIconBoxBorder by animateColorAsState(
-                        targetValue = if(todo.isChecked) Color(0x00FFFFFF) else Color(0xFF8B618F),
+                        targetValue = if(todo.isChecked) Color(0x00) else Color(0xFF8B618F),
                         label = "Animated color for todo background"
                     )
 
