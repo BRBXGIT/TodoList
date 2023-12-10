@@ -206,6 +206,7 @@ fun MainScreen(dao: TodoDao) {
                     }
                 }
             }
+
             //Box with todos
             LazyColumn(
                 modifier = Modifier
@@ -247,6 +248,21 @@ fun MainScreen(dao: TodoDao) {
                         label = "offset",
                     )
 
+                    val animatedColorForTodoBackground by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x99D88EDD) else Color(0xFFD88EDD),
+                        label = "Animated color for todo background"
+                    )
+
+                    val animatedColorForTodoDateBox by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x99C27FC6) else Color(0xFFC27FC6),
+                        label = "Animated color for todo background"
+                    )
+
+                    val animatedColorForLabels by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0xFFFFFFFF),
+                        label = "Animated color for todo background"
+                    )
+
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -263,7 +279,10 @@ fun MainScreen(dao: TodoDao) {
                             todo.startTime,
                             todo.isChecked,
                             dao,
-                            dayOfTodoWithMonth
+                            dayOfTodoWithMonth,
+                            animatedColorForTodoBackground,
+                            animatedColorForTodoDateBox,
+                            animatedColorForLabels
                         )
                     }
                 }

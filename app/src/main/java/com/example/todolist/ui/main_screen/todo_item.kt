@@ -1,5 +1,6 @@
 package com.example.todolist.ui.main_screen
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -18,11 +19,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -33,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.todolist.R
 import com.example.todolist.data.TodoDao
+import kotlin.random.Random
 
 @Composable
 fun TodoItem(
@@ -44,6 +51,9 @@ fun TodoItem(
     isChecked: Boolean,
     dao: TodoDao,
     dayOfTodoWithMonth: String,
+    animatedColorForTodoBackground: Color,
+    animatedColorForTodoDateBox: Color,
+    animatedColorForLabels: Color,
     mainScreenViewModel: MainScreenViewModel = viewModel()
 ) {
     val fontFamily = FontFamily(
@@ -58,18 +68,20 @@ fun TodoItem(
             .fillMaxWidth()
             .height(90.dp)
             .clip(RoundedCornerShape(10.dp))
-            .background(Color(0xFFD88EDD))
+            .drawBehind {
+                drawRect(animatedColorForTodoBackground)
+            }
     ) {
         //Box with date
         Box(
             modifier = Modifier
                 .fillMaxHeight()
-                .background(Color(0xFFC27FC6)),
+                .background(animatedColorForTodoDateBox),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = dayOfTodoWithMonth,
-                color = Color.White,
+                color = animatedColorForLabels,
                 fontWeight = FontWeight.Bold,
                 fontFamily = fontFamily,
                 fontSize = 12.sp,
@@ -92,7 +104,7 @@ fun TodoItem(
             ) {
                 Text(
                     text = title,
-                    color = Color.White,
+                    color = animatedColorForLabels,
                     fontWeight = FontWeight.Bold,
                     fontFamily = fontFamily,
                     fontSize = 10.sp,
@@ -101,7 +113,7 @@ fun TodoItem(
                 )
                 Text(
                     text = "$startTime - $endTime",
-                    color = Color.White,
+                    color = animatedColorForLabels,
                     fontWeight = FontWeight.Bold,
                     fontFamily = fontFamily,
                     fontSize = 25.sp,
