@@ -2,6 +2,7 @@ package com.example.todolist.ui.main_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,14 +30,21 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.todolist.R
+import com.example.todolist.data.TodoDao
 
 @Composable
 fun TodoItem(
+    id: Int,
     title: String,
     endTime: String,
     date: String,
-    startTime: String
+    startTime: String,
+    isChecked: Boolean,
+    dao: TodoDao,
+    dayOfTodoWithMonth: String,
+    mainScreenViewModel: MainScreenViewModel = viewModel()
 ) {
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
@@ -60,7 +68,7 @@ fun TodoItem(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = date,
+                text = dayOfTodoWithMonth,
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontFamily = fontFamily,
@@ -105,7 +113,18 @@ fun TodoItem(
                 modifier = Modifier
                     .size(40.dp)
                     .border(3.dp, Color(0xFF8B618F), CircleShape)
-                    .clip(CircleShape),
+                    .clip(CircleShape)
+                    .clickable {
+                        mainScreenViewModel.updateExistingTodo(
+                            id,
+                            title,
+                            startTime,
+                            endTime,
+                            date,
+                            isChecked,
+                            dao
+                        )
+                    },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(

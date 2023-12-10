@@ -2,7 +2,6 @@ package com.example.todolist.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity
 data class Todo(
@@ -12,5 +11,5 @@ data class Todo(
     val startTime: String,
     val endTime: String,
     val date: String,
-    val isChecked: Boolean
+    val isChecked: Boolean,
 )
