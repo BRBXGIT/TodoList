@@ -286,6 +286,7 @@ fun MainScreen(dao: TodoDao) {
                             .offset {
                                 offset
                             }
+                            .padding(bottom = 4.dp)
                     ) {
                         TodoItem(
                             todo.id,
