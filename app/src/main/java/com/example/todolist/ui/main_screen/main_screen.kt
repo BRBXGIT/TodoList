@@ -263,6 +263,21 @@ fun MainScreen(dao: TodoDao) {
                         label = "Animated color for todo background"
                     )
 
+                    val animatedBackgroundColorForIcon by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x99FFFFFF) else Color(0xFF8B618F),
+                        label = "Animated color for todo background"
+                    )
+
+                    val animatedBackgroundColorForIconBox by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0x00FFFFFF),
+                        label = "Animated color for todo background"
+                    )
+
+                    val animatedBackgroundColorForIconBoxBorder by animateColorAsState(
+                        targetValue = if(todo.isChecked) Color(0x00FFFFFF) else Color(0xFF8B618F),
+                        label = "Animated color for todo background"
+                    )
+
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -282,7 +297,10 @@ fun MainScreen(dao: TodoDao) {
                             dayOfTodoWithMonth,
                             animatedColorForTodoBackground,
                             animatedColorForTodoDateBox,
-                            animatedColorForLabels
+                            animatedColorForLabels,
+                            animatedBackgroundColorForIcon,
+                            animatedBackgroundColorForIconBox,
+                            animatedBackgroundColorForIconBoxBorder
                         )
                     }
                 }

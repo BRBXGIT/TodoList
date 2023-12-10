@@ -54,6 +54,9 @@ fun TodoItem(
     animatedColorForTodoBackground: Color,
     animatedColorForTodoDateBox: Color,
     animatedColorForLabels: Color,
+    animatedBackgroundColorForIcon: Color,
+    animatedBackgroundColorForIconBox: Color,
+    animatedBackgroundColorForIconBoxBorder: Color,
     mainScreenViewModel: MainScreenViewModel = viewModel()
 ) {
     val fontFamily = FontFamily(
@@ -124,8 +127,9 @@ fun TodoItem(
             Box(
                 modifier = Modifier
                     .size(40.dp)
-                    .border(3.dp, Color(0xFF8B618F), CircleShape)
+                    .border(3.dp, animatedBackgroundColorForIconBoxBorder, CircleShape)
                     .clip(CircleShape)
+                    .background(animatedBackgroundColorForIconBox)
                     .clickable {
                         mainScreenViewModel.updateExistingTodo(
                             id,
@@ -142,7 +146,7 @@ fun TodoItem(
                 Icon(
                     painter = painterResource(id = R.drawable.not_complited_todo_icon),
                     contentDescription = "Not completed todo icon",
-                    tint = Color(0xFF8B618F),
+                    tint = animatedBackgroundColorForIcon,
                     modifier = Modifier
                         .size(12.dp)
                 )
