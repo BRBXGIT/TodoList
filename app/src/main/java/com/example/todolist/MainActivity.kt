@@ -1,9 +1,13 @@
 package com.example.todolist
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.core.view.WindowCompat
 import androidx.room.Room
 import com.example.todolist.data.TodoDb
 import com.example.todolist.ui.main_screen.MainScreen
@@ -37,3 +41,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+

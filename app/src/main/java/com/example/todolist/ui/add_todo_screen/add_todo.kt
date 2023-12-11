@@ -2,6 +2,7 @@ package com.example.todolist.ui.add_todo_screen
 
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -275,14 +276,18 @@ fun AddTodo(
             val context = LocalContext.current
             Button(
                 onClick = {
-                    addTodoViewModel.upsertNewTodo(
-                        dao = dao,
-                        startTime = chosenStartTime,
-                        endTime = chosenEndTime,
-                        date = chosenDate,
-                        title = todoTitle
-                    )
-                    context.startActivity(Intent(context, MainActivity::class.java))
+                    if((todoTitle != "") and (chosenStartTime != "") and (chosenEndTime != "") and (chosenDate != "")) {
+                        addTodoViewModel.upsertNewTodo(
+                            dao = dao,
+                            startTime = chosenStartTime,
+                            endTime = chosenEndTime,
+                            date = chosenDate,
+                            title = todoTitle
+                        )
+                        context.startActivity(Intent(context, MainActivity::class.java))
+                    } else {
+                        Toast.makeText(context, "Please fill on full information", Toast.LENGTH_SHORT).show()
+                    }
                 },
                 modifier = Modifier
                     .align(Alignment.BottomCenter),

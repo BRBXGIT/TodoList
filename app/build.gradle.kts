@@ -53,6 +53,7 @@ android {
 dependencies {
 
     implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    implementation("androidx.wear.compose:compose-material:1.2.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
 
     //For date
