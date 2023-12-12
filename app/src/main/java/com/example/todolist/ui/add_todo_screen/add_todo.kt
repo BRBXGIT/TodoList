@@ -75,7 +75,7 @@ fun AddTodo(
         }
     )
 
-    //Clock states
+    //Start time clock states
     val startClockState = rememberSheetState()
     var chosenStartTime by remember { mutableStateOf("") }
 
@@ -98,12 +98,14 @@ fun AddTodo(
         )
     )
 
+    //End time clock states
     val endClockState = rememberSheetState()
     var chosenEndTime by remember { mutableStateOf("") }
 
     ClockDialog(
         state = endClockState,
         selection = ClockSelection.HoursMinutes { hours, minutes ->
+            //Calculation of normal time format
             chosenEndTime = "$hours:$minutes"
             if((chosenEndTime.split(":")[0].length < 2) and (chosenEndTime.split(":")[1].length < 2)) {
                 chosenEndTime = "0$hours:0$minutes"
@@ -120,6 +122,7 @@ fun AddTodo(
         )
     )
 
+    //Box with all pickers
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -134,6 +137,7 @@ fun AddTodo(
             .padding(24.dp),
         contentAlignment = Alignment.Center
     ) {
+        //Box with textField to choose title
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -143,7 +147,6 @@ fun AddTodo(
                 .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {
-
             Text(
                 text = "Configure your todo",
                 fontWeight = FontWeight.Bold,

@@ -98,6 +98,7 @@ fun TodoItem(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            //Column with title and time
             Column(
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Center
@@ -121,12 +122,14 @@ fun TodoItem(
                         .alpha(0.7f)
                 )
             }
+            //Clickable box with icon to complete to_do
             Box(
                 modifier = Modifier
                     .size(40.dp)
                     .border(3.dp, animatedBackgroundColorForIconBoxBorder, CircleShape)
                     .clip(CircleShape)
                     .background(animatedBackgroundColorForIconBox)
+                    //Update isChecked status
                     .noRippleClickable {
                         mainScreenViewModel.updateExistingTodo(
                             id,
@@ -140,6 +143,7 @@ fun TodoItem(
                     },
                 contentAlignment = Alignment.Center
             ) {
+                //Changing icons with isChecked status
                 if(isChecked) {
                     Icon(
                         painter = painterResource(id = R.drawable.completed_todo_icon),
@@ -162,6 +166,7 @@ fun TodoItem(
     }
 }
 
+//Custom modifier for no ripple click
 fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
     clickable(indication = null,
         interactionSource = remember { MutableInteractionSource() }) {
