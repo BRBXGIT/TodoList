@@ -1,9 +1,9 @@
 package com.example.todolist.ui.add_todo_screen
 
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -43,7 +44,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.todolist.MainActivity
 import com.example.todolist.R
-import com.example.todolist.data.TodoDao
+import com.example.todolist.data.TodoData.TodoDao
 import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.calendar.CalendarDialog
 import com.maxkeppeler.sheets.calendar.models.CalendarSelection
@@ -123,6 +124,7 @@ fun AddTodo(
     )
 
     //Box with all pickers
+    val context = LocalContext.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -137,6 +139,18 @@ fun AddTodo(
             .padding(24.dp),
         contentAlignment = Alignment.Center
     ) {
+        Icon(
+            painter = painterResource(id = R.drawable.go_back_icon),
+            contentDescription = "Go back to MainActivity icon",
+            tint = Color(0x90FFFFFF),
+            modifier = Modifier
+                .size(52.dp)
+                .align(Alignment.TopStart)
+                .clickable {
+                    context.startActivity(Intent(context, MainActivity::class.java))
+                }
+        )
+
         //Box with textField to choose title
         Box(
             modifier = Modifier
@@ -276,7 +290,6 @@ fun AddTodo(
             }
 
             //Create to_do button
-            val context = LocalContext.current
             Button(
                 onClick = {
                     if((todoTitle != "") and (chosenStartTime != "") and (chosenEndTime != "") and (chosenDate != "")) {

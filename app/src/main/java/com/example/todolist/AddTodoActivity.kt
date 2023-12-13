@@ -5,13 +5,13 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.room.Room
-import com.example.todolist.data.TodoDb
+import com.example.todolist.data.TodoData.TodoDb
 import com.example.todolist.ui.add_todo_screen.AddTodo
 import com.example.todolist.ui.theme.TodoListTheme
 
 class AddTodoActivity : ComponentActivity() {
 
-    private val db by lazy {
+    private val todoDb by lazy {
         Room.databaseBuilder(
             applicationContext,
             TodoDb::class.java,
@@ -20,7 +20,7 @@ class AddTodoActivity : ComponentActivity() {
     }
 
     private val todoDao by lazy {
-        db.todoDao()
+        todoDb.todoDao()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

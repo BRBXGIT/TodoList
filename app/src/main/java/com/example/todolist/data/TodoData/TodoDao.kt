@@ -1,10 +1,11 @@
-package com.example.todolist.data
+package com.example.todolist.data.TodoData
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Update
 import androidx.room.Upsert
+import com.example.todolist.data.TodoData.Todo
 import kotlinx.coroutines.flow.Flow
 
 @Dao

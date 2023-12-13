@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.todolist.R
-import com.example.todolist.data.TodoDao
+import com.example.todolist.data.TodoData.TodoDao
 
 @Composable
 fun TodoItem(
@@ -46,7 +46,7 @@ fun TodoItem(
     date: String,
     startTime: String,
     isChecked: Boolean,
-    dao: TodoDao,
+    todoDao: TodoDao,
     dayOfTodoWithMonth: String,
     animatedColorForTodoBackground: Color,
     animatedColorForTodoDateBox: Color,
@@ -138,7 +138,7 @@ fun TodoItem(
                             endTime,
                             date,
                             isChecked,
-                            dao
+                            todoDao
                         )
                     },
                 contentAlignment = Alignment.Center

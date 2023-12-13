@@ -50,13 +50,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todolist.AddTodoActivity
 import com.example.todolist.R
-import com.example.todolist.data.TodoDao
+import com.example.todolist.UserActivity
+import com.example.todolist.data.TodoData.TodoDao
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import kotlin.math.roundToInt
 
 @Composable
-fun MainScreen(dao: TodoDao) {
+fun MainScreen(
+    todoDao: TodoDao
+) {
 
     val fontFamily = FontFamily(
         Font(R.font.ubuntu_bold, FontWeight.Bold),
@@ -65,9 +68,10 @@ fun MainScreen(dao: TodoDao) {
     )
 
     //All todos as state
-    val todos = dao.getAllTodos().collectAsState(initial = emptyList())
+    val todos = todoDao.getAllTodos().collectAsState(initial = emptyList())
 
     //Left menu drawer menu with main screen
+    val context = LocalContext.current
     val leftMenuDrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -91,11 +95,14 @@ fun MainScreen(dao: TodoDao) {
                 //Home item in left nav menu
                 NavigationDrawerItem(
                     label = {
-                        Row {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.home_icon),
                                 contentDescription = "Home icon in left nav menu",
-                                tint = Color.Black
+                                tint = Color.Black,
                             )
                             Text(
                                 text = "Home",
@@ -106,7 +113,11 @@ fun MainScreen(dao: TodoDao) {
                         }
                     },
                     selected = false,
-                    onClick = { /*TODO*/ },
+                    onClick = { scope.launch {
+                        leftMenuDrawerState.apply {
+                            close()
+                        }
+                    } },
                     shape = RoundedCornerShape(0.dp),
                     colors = NavigationDrawerItemDefaults.colors(
                         unselectedContainerColor = Color.White
@@ -115,7 +126,10 @@ fun MainScreen(dao: TodoDao) {
                 //User item in left nav menu
                 NavigationDrawerItem(
                     label = {
-                        Row {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.user_icon),
                                 contentDescription = "User icon in left nav menu",
@@ -130,7 +144,14 @@ fun MainScreen(dao: TodoDao) {
                         }
                     },
                     selected = false,
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        scope.launch {
+                            leftMenuDrawerState.apply {
+                                close()
+                                context.startActivity(Intent(context, UserActivity::class.java))
+                            }
+                        }
+                    },
                     shape = RoundedCornerShape(0.dp),
                     colors = NavigationDrawerItemDefaults.colors(
                         unselectedContainerColor = Color.White
@@ -139,10 +160,13 @@ fun MainScreen(dao: TodoDao) {
                 //Add to_do item in left nav menu
                 NavigationDrawerItem(
                     label = {
-                        Row {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.add_todo_icon_for_left_menu),
-                                contentDescription = "User icon in left nav menu",
+                                contentDescription = "Add icon in left nav menu",
                                 tint = Color.Black
                             )
                             Text(
@@ -154,7 +178,14 @@ fun MainScreen(dao: TodoDao) {
                         }
                     },
                     selected = false,
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        scope.launch {
+                            leftMenuDrawerState.apply {
+                                close()
+                                context.startActivity(Intent(context, AddTodoActivity::class.java))
+                            }
+                        }
+                    },
                     shape = RoundedCornerShape(0.dp),
                     colors = NavigationDrawerItemDefaults.colors(
                         unselectedContainerColor = Color.White
@@ -163,10 +194,13 @@ fun MainScreen(dao: TodoDao) {
                 //Settings item in left nav menu
                 NavigationDrawerItem(
                     label = {
-                        Row {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.settings_icon),
-                                contentDescription = "User icon in left nav menu",
+                                contentDescription = "Settings icon in left nav menu",
                                 tint = Color.Black
                             )
                             Text(
@@ -214,7 +248,7 @@ fun MainScreen(dao: TodoDao) {
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.menu_icon),
-                            contentDescription = "menu icon",
+                            contentDescription = "Menu icon",
                             tint = Color.White,
                             modifier = Modifier
                                 .size(50.dp)
@@ -229,7 +263,6 @@ fun MainScreen(dao: TodoDao) {
                         )
 
                         //Add to_do button
-                        val context = LocalContext.current
                         ElevatedButton(
                             onClick = {
                                 context.startActivity(Intent(context, AddTodoActivity::class.java))
@@ -362,14 +395,15 @@ fun MainScreen(dao: TodoDao) {
                             "MARCH" -> monthOfTodo = "MAR"
                             "APRIL" -> monthOfTodo = "APR"
                             "MAY" -> monthOfTodo = "MAY"
-                            "JUNE" -> monthOfTodo = "JUNE"
-                            "JULY" -> monthOfTodo = "JULY"
+                            "JUNE" -> monthOfTodo = "JUN"
+                            "JULY" -> monthOfTodo = "JUL"
                             "AUGUST" -> monthOfTodo = "AUG"
-                            "SEPTEMBER" -> monthOfTodo = "SEPT"
+                            "SEPTEMBER" -> monthOfTodo = "SEP"
                             "OCTOBER" -> monthOfTodo = "OCT"
                             "NOVEMBER" -> monthOfTodo = "NOV"
                             "DECEMBER" -> monthOfTodo = "DEC"
                         }
+
                         var dayOfTodoWithMonth = "$dayOfTodo $monthOfTodo"
                         if(dayOfTodoWithMonth.length < 6) {
                             dayOfTodoWithMonth = "0$dayOfTodoWithMonth"
@@ -395,27 +429,27 @@ fun MainScreen(dao: TodoDao) {
 
                         val animatedColorForTodoDateBox by animateColorAsState(
                             targetValue = if(todo.isChecked) Color(0x99C27FC6) else Color(0xFFC27FC6),
-                            label = "Animated color for todo background"
+                            label = "Animated color for todo date box"
                         )
 
                         val animatedColorForLabels by animateColorAsState(
                             targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0xFFFFFFFF),
-                            label = "Animated color for todo background"
+                            label = "Animated color for labels"
                         )
 
                         val animatedBackgroundColorForIcon by animateColorAsState(
                             targetValue = if(todo.isChecked) Color(0x70FFFFFF) else Color(0xFF8B618F),
-                            label = "Animated color for todo background"
+                            label = "Animated color for todo icon"
                         )
 
                         val animatedBackgroundColorForIconBox by animateColorAsState(
                             targetValue = if(todo.isChecked) Color(0x998B618F) else Color(0x00),
-                            label = "Animated color for todo background"
+                            label = "Animated color for todo iconBox"
                         )
 
                         val animatedBackgroundColorForIconBoxBorder by animateColorAsState(
                             targetValue = if(todo.isChecked) Color(0x00) else Color(0xFF8B618F),
-                            label = "Animated color for todo background"
+                            label = "Animated color for todo iconBox border"
                         )
 
                         //Box with to_do item
@@ -435,7 +469,7 @@ fun MainScreen(dao: TodoDao) {
                                 todo.date,
                                 todo.startTime,
                                 todo.isChecked,
-                                dao,
+                                todoDao,
                                 dayOfTodoWithMonth,
                                 animatedColorForTodoBackground,
                                 animatedColorForTodoDateBox,

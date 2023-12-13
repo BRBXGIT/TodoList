@@ -2,8 +2,8 @@ package com.example.todolist.ui.main_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todolist.data.Todo
-import com.example.todolist.data.TodoDao
+import com.example.todolist.data.TodoData.Todo
+import com.example.todolist.data.TodoData.TodoDao
 import kotlinx.coroutines.launch
 
 class MainScreenViewModel: ViewModel() {
@@ -14,10 +14,10 @@ class MainScreenViewModel: ViewModel() {
         endTime: String,
         date: String,
         isChecked: Boolean,
-        dao: TodoDao
+        todoDao: TodoDao
     ) {
         viewModelScope.launch {
-            dao.updateTodo(
+            todoDao.updateTodo(
                 Todo(
                     id = id,
                     title = title,

@@ -2,8 +2,8 @@ package com.example.todolist.ui.add_todo_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todolist.data.Todo
-import com.example.todolist.data.TodoDao
+import com.example.todolist.data.TodoData.Todo
+import com.example.todolist.data.TodoData.TodoDao
 import kotlinx.coroutines.launch
 
 class AddTodoViewModel: ViewModel() {
