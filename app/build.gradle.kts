@@ -68,6 +68,10 @@ dependencies {
     implementation(libs.lottie)
     //Google fonts
     implementation(libs.androidx.ui.text.google.fonts)
+    //Calendar dialog
+    implementation(libs.calendarPicker)
+    //Clock dialog
+    implementation(libs.timePicker)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -22,6 +22,8 @@ lottie = "6.5.2"
 
 uiTextGoogleFonts = "1.7.3"
 
+customPickers = "1.3.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -50,6 +52,9 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx"
 lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
 
 androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+
+calendarPicker = { module = "com.maxkeppeler.sheets-compose-dialogs:calendar", version.ref = "customPickers" }
+timePicker = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version.ref = "customPickers" }
 
 
 [plugins]
