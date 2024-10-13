@@ -60,6 +60,8 @@ fun TodoScreen(
         ) {
             val filteredItems = todoItems.filter { todo ->
                 todo.date == selectedDate
+            }.sortedBy { todo ->
+                todo.completed
             }
             items(filteredItems, key = { it.id }) { todo ->
                 TodoItem(

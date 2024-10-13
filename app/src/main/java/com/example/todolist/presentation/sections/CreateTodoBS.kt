@@ -44,6 +44,7 @@ fun CreateTodoBS(
 ) {
     val selectedDate by todoScreenTopBarVM.selectedDate.collectAsStateWithLifecycle()
     var title by rememberSaveable { mutableStateOf("") }
+    var description by rememberSaveable { mutableStateOf("") }
     var time by rememberSaveable { mutableStateOf("00:00") }
 
     val clockDialogState = rememberUseCaseState()
@@ -72,6 +73,14 @@ fun CreateTodoBS(
                 value = title,
                 onValueChange = { title = it },
                 label = { Text(text = "Title") },
+                modifier = Modifier.fillMaxWidth(),
+                maxLines = 1
+            )
+
+            OutlinedTextField(
+                value = description,
+                onValueChange = { description = it },
+                label = { Text(text = "Description") },
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1
             )
@@ -115,7 +124,8 @@ fun CreateTodoBS(
                         Todo(
                             title = title,
                             time = time,
-                            date = selectedDate
+                            date = selectedDate,
+                            description = description
                         )
                     )
                     onDismissRequest()

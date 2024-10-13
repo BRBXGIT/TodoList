@@ -10,5 +10,6 @@ data class Todo(
     val title: String,
     val time: String,
     val date: String,
+    val description: String,
     val completed: Boolean = false
 )
