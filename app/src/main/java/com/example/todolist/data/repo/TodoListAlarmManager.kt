@@ -46,17 +46,16 @@ class TodoListAlarmManager @Inject constructor(
                     }
                 }
 
-                alarmManager.setRepeating(
+                alarmManager.set(
                     AlarmManager.RTC_WAKEUP,
                     calendar.timeInMillis,
-                    AlarmManager.INTERVAL_DAY,
-                    pendingIntent,
+                    pendingIntent
                 )
             }
         }
     }
 
-    fun cancelMealAlarm(id: Int) {
+    fun cancelTodoAlarm(id: Int) {
         coroutineScope.launch {
             repository.getTodoById(id).collect { todo ->
                 val pendingIntent = PendingIntent.getBroadcast(

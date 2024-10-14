@@ -18,6 +18,10 @@ class MainRepoImpl @Inject constructor(
         todoDao.updateTodoCompleted(id, completed)
     }
 
+    override suspend fun updateAlarm(id: Int, alarm: Boolean) {
+        todoDao.updateAlarm(id, alarm)
+    }
+
     override fun getAllTodo(): Flow<List<Todo>> {
         return  todoDao.getAllTodo()
     }

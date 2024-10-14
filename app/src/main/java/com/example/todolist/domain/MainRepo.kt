@@ -9,6 +9,8 @@ interface MainRepo {
 
     suspend fun updateTodoCompleted(id: Int, completed: Boolean)
 
+    suspend fun updateAlarm(id: Int, alarm: Boolean)
+
     fun getAllTodo(): Flow<List<Todo>>
 
     fun getTodoById(id: Int): Flow<Todo>

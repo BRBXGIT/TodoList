@@ -44,7 +44,7 @@ object MainModule {
 
     @Provides
     @Singleton
-    fun provideAlarmManager(
+    fun provideTodoListAlarmManager(
         alarmManager: AlarmManager,
         mainRepoImpl: MainRepoImpl,
         @ApplicationContext context: Context
