@@ -21,4 +21,8 @@ class MainRepoImpl @Inject constructor(
     override fun getAllTodo(): Flow<List<Todo>> {
         return  todoDao.getAllTodo()
     }
+
+    override fun getTodoById(id: Int): Flow<Todo> {
+        return todoDao.getTodoById(id)
+    }
 }

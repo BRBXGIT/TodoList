@@ -9,4 +9,5 @@ object TodoListIcons {
     val PlusFilled = R.drawable.ic_plus_filled
     val AddAlarmFilled = R.drawable.ic_add_alarm_filled
     val CheckFilled = R.drawable.ic_check_filled
+    val BinFilled = R.drawable.ic_bin_filled
 }

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,6 +53,13 @@ fun TodoScreen(
     ) { innerPadding ->
         val todoItems by todoScreenVM.allTodo.collectAsStateWithLifecycle()
 
+        val completedItems = todoItems.filter { todo ->
+            todo.date == selectedDate && todo.completed
+        }
+        val uncompletedItems = todoItems.filter { todo ->
+            todo.date == selectedDate && !todo.completed
+        }
+
         LazyColumn(
             contentPadding = PaddingValues(
                 horizontal = 16.dp,
@@ -62,33 +70,70 @@ fun TodoScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            val filteredItems = todoItems.filter { todo ->
-                todo.date == selectedDate
-            }.sortedBy { todo ->
-                todo.completed
+            if(uncompletedItems.isNotEmpty()) {
+                item {
+                    Text(
+                        text = "Todo: ",
+                        modifier = Modifier.animateItem()
+                    )
+                }
+
+                items(uncompletedItems, key = { it.id }) { todo ->
+                    var isRevealed by rememberSaveable { mutableStateOf(false) }
+                    TodoItem(
+                        todo = todo,
+                        onTodoCompletedChange = {
+                            todoScreenVM.updateTodoCompleted(todo.id, !todo.completed)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(IntrinsicSize.Min)
+                            .animateItem(),
+                        isRevealed = isRevealed,
+                        actions = {
+                            ActionButton(
+                                icon = TodoListIcons.AddAlarmFilled,
+                                onClick = { isRevealed = false },
+                                text = "Add alarm"
+                            )
+                        },
+                        onExpand = { isRevealed = true },
+                        onCollapsed = { isRevealed = false }
+                    )
+                }
             }
-            items(filteredItems, key = { it.id }) { todo ->
-                var isRevealed by rememberSaveable { mutableStateOf(false) }
-                TodoItem(
-                    todo = todo,
-                    onTodoCompletedChange = {
-                        todoScreenVM.updateTodoCompleted(todo.id, !todo.completed)
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(IntrinsicSize.Min)
-                        .animateItem(),
-                    isRevealed = isRevealed,
-                    actions = {
-                        ActionButton(
-                            icon = TodoListIcons.AddAlarmFilled,
-                            onClick = { isRevealed = false },
-                            text = "Add alarm"
-                        )
-                    },
-                    onExpand = { isRevealed = true },
-                    onCollapsed = { isRevealed = false }
-                )
+
+            if(completedItems.isNotEmpty()) {
+                item {
+                    Text(
+                        text = "Completed: ",
+                        modifier = Modifier.animateItem()
+                    )
+                }
+
+                items(completedItems, key = { it.id }) { todo ->
+                    var isRevealed by rememberSaveable { mutableStateOf(false) }
+                    TodoItem(
+                        todo = todo,
+                        onTodoCompletedChange = {
+                            todoScreenVM.updateTodoCompleted(todo.id, !todo.completed)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(IntrinsicSize.Min)
+                            .animateItem(),
+                        isRevealed = isRevealed,
+                        actions = {
+                            ActionButton(
+                                icon = TodoListIcons.AddAlarmFilled,
+                                onClick = { isRevealed = false },
+                                text = "Add alarm"
+                            )
+                        },
+                        onExpand = { isRevealed = true },
+                        onCollapsed = { isRevealed = false }
+                    )
+                }
             }
         }
     }

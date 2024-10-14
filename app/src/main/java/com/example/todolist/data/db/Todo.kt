@@ -11,5 +11,6 @@ data class Todo(
     val time: String,
     val date: String,
     val description: String,
-    val completed: Boolean = false
+    val completed: Boolean = false,
+    val alarm: Boolean = false
 )

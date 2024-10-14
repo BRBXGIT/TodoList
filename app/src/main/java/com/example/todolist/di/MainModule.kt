@@ -1,10 +1,13 @@
 package com.example.todolist.di
 
+import android.app.AlarmManager
+import android.app.Service
 import android.content.Context
 import androidx.room.Room
 import com.example.todolist.data.db.TodoDao
 import com.example.todolist.data.db.TodoDb
 import com.example.todolist.data.repo.MainRepoImpl
+import com.example.todolist.data.repo.TodoListAlarmManager
 import com.example.todolist.domain.MainRepo
 import dagger.Module
 import dagger.Provides
@@ -31,5 +34,25 @@ object MainModule {
     @Singleton
     fun provideMainRepo(todoDao: TodoDao): MainRepo {
         return MainRepoImpl(todoDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAlarmManager(@ApplicationContext context: Context): AlarmManager {
+        return context.getSystemService(Service.ALARM_SERVICE) as AlarmManager
+    }
+
+    @Provides
+    @Singleton
+    fun provideAlarmManager(
+        alarmManager: AlarmManager,
+        mainRepoImpl: MainRepoImpl,
+        @ApplicationContext context: Context
+    ): TodoListAlarmManager {
+        return TodoListAlarmManager(
+            alarmManager = alarmManager,
+            repository = mainRepoImpl,
+            context = context
+        )
     }
 }
