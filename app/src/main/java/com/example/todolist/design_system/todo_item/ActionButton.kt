@@ -2,7 +2,9 @@ package com.example.todolist.design_system.todo_item
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CornerSize
@@ -27,29 +29,36 @@ fun ActionButton(
     text: String,
     color: Color
 ) {
-    Surface(
-        modifier = Modifier.fillMaxHeight(),
-        color = color,
-        shape = mShapes.small,
-        onClick = { onClick() }
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        Surface(
+            modifier = Modifier.fillMaxHeight(),
+            color = color,
+            shape = mShapes.small,
+            onClick = { onClick() }
         ) {
-            Icon(
-                painter = painterResource(id = icon),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(26.dp)
-                    .padding(start = 8.dp)
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = icon),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(26.dp)
+                        .padding(start = 8.dp)
+                )
 
-            Text(
-                text = text,
-                style = mTypography.labelLarge,
-                modifier = Modifier.padding(end = 8.dp)
-            )
+                Text(
+                    text = text,
+                    style = mTypography.labelLarge,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+            }
         }
+
+        Spacer(modifier = Modifier.size(0.dp))
     }
 }

@@ -10,6 +10,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
+import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mShapes
 import com.example.todolist.ui.theme.mTypography
 import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
@@ -26,7 +30,8 @@ import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodoScreenTopBar(
-    viewModel: TodoScreenTopBarVM
+    viewModel: TodoScreenTopBarVM,
+    scrollBehavior: TopAppBarScrollBehavior
 ) {
     val date by viewModel.selectedDate.collectAsStateWithLifecycle()
 
@@ -89,6 +94,10 @@ fun TodoScreenTopBar(
                     )
                 }
             }
-        }
+        },
+        scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(
+            scrolledContainerColor = mColors.surfaceContainerHighest
+        )
     )
 }

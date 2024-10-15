@@ -28,7 +28,8 @@ private val LightColorScheme = lightColorScheme(
     tertiaryContainer = lightTertiaryContainer,
     onTertiaryContainer = lightOnTertiaryContainer,
     surfaceContainer = lightSurfaceContainer,
-    onSurface = lightOnSurface
+    onSurface = lightOnSurface,
+    surfaceContainerHighest = lightSurfaceContainerHighest
 )
 
 @Composable

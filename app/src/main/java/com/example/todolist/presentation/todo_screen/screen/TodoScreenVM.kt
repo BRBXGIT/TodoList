@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.screen
+package com.example.todolist.presentation.todo_screen.screen
 
 import android.app.AlarmManager
 import androidx.lifecycle.ViewModel

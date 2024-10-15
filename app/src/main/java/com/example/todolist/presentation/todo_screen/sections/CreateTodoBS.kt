@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.sections
+package com.example.todolist.presentation.todo_screen.sections
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,6 +13,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +28,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.todolist.data.db.Todo
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
-import com.example.todolist.presentation.screen.TodoScreenVM
+import com.example.todolist.presentation.todo_screen.screen.TodoScreenVM
 import com.example.todolist.ui.theme.mShapes
 import com.example.todolist.ui.theme.mTypography
 import com.maxkeppeker.sheets.core.models.base.rememberUseCaseState
@@ -62,7 +63,8 @@ fun CreateTodoBS(
     ModalBottomSheet(
         onDismissRequest = { onDismissRequest() },
         tonalElevation = 0.dp,
-        shape = mShapes.small
+        shape = mShapes.small,
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),

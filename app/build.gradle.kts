@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.hilt.android)
     //Ksp
     alias(libs.plugins.ksp)
+    //Serialization
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -26,9 +28,9 @@ android {
 
     buildTypes {
         release {
-//            isMinifyEnabled = true
-//            isShrinkResources = true
-//            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -74,6 +76,9 @@ dependencies {
     implementation(libs.calendarPicker)
     //Clock dialog
     implementation(libs.timePicker)
+    //Nav
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

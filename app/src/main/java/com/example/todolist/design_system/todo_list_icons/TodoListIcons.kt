@@ -10,4 +10,11 @@ object TodoListIcons {
     val AddAlarmFilled = R.drawable.ic_add_alarm_filled
     val CheckFilled = R.drawable.ic_check_filled
     val BinFilled = R.drawable.ic_bin_filled
+    val Settings = R.drawable.ic_settings
+    val AlarmCreated = R.drawable.ic_alarm_created
+    val AlarmCreateFilled = R.drawable.ic_alarm_created_filled
+    val TodoList = R.drawable.ic_todo_list
+    val VKFilled = R.drawable.ic_vk_filled
+    val GitHubFilled = R.drawable.ic_github_filled
+    val NavigationArrowLeft = R.drawable.ic_navigation_arrow_left
 }

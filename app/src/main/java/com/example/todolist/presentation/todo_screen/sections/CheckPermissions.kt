@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.sections
+package com.example.todolist.presentation.todo_screen.sections
 
 import android.Manifest
 import android.content.Context
@@ -24,13 +24,21 @@ fun CheckPermissions(
 ) {
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission(),
-        onResult = {
+        onResult = { result ->
             scope.launch {
-                SnackbarController.sendEvent(
-                    SnackbarEvent(
-                        message = "Notifications granted"
+                if(result) {
+                    SnackbarController.sendEvent(
+                        SnackbarEvent(
+                            message = "Notifications granted"
+                        )
                     )
-                )
+                } else {
+                    SnackbarController.sendEvent(
+                        SnackbarEvent(
+                            message = "You can always enable it in settings :)"
+                        )
+                    )
+                }
             }
         }
     )
