@@ -102,7 +102,7 @@ fun CreateTodoBS(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Icon(
-                            painter = painterResource(id = TodoListIcons.AddAlarmFilled),
+                            painter = painterResource(id = TodoListIcons.AddAlarm),
                             contentDescription = null
                         )
 

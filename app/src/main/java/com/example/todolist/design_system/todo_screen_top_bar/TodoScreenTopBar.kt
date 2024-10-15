@@ -10,7 +10,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
@@ -52,7 +51,7 @@ fun TodoScreenTopBar(
                     onClick = { viewModel.dateMinusDay() }
                 ) {
                     Icon(
-                        painter = painterResource(id = TodoListIcons.ArrowLeftFilled),
+                        painter = painterResource(id = TodoListIcons.ArrowLeft),
                         contentDescription = null
                     )
                 }
@@ -65,7 +64,7 @@ fun TodoScreenTopBar(
                         .clickable { calendarDialogState.show() }
                 ) {
                     Icon(
-                        painter = painterResource(id = TodoListIcons.CalendarFilled),
+                        painter = painterResource(id = TodoListIcons.Calendar),
                         contentDescription = null,
                         modifier = Modifier.padding(
                             start = 4.dp,
@@ -89,7 +88,7 @@ fun TodoScreenTopBar(
                     onClick = { viewModel.datePlusDay() }
                 ) {
                     Icon(
-                        painter = painterResource(id = TodoListIcons.ArrowRightFilled),
+                        painter = painterResource(id = TodoListIcons.ArrowRight),
                         contentDescription = null
                     )
                 }

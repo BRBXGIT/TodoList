@@ -3,13 +3,13 @@ package com.example.todolist.design_system.todo_list_icons
 import com.example.todolist.R
 
 object TodoListIcons {
-    val ArrowRightFilled = R.drawable.ic_arrow_right_filled
-    val ArrowLeftFilled = R.drawable.ic_arrow_left_filled
-    val CalendarFilled = R.drawable.ic_calendar_filled
+    val ArrowRight = R.drawable.ic_arrow_right
+    val ArrowLeft = R.drawable.ic_arrow_left
+    val Calendar = R.drawable.ic_calendar
     val PlusFilled = R.drawable.ic_plus_filled
-    val AddAlarmFilled = R.drawable.ic_add_alarm_filled
+    val AddAlarm = R.drawable.ic_add_alarm
     val CheckFilled = R.drawable.ic_check_filled
-    val BinFilled = R.drawable.ic_bin_filled
+    val Bin = R.drawable.ic_bin
     val Settings = R.drawable.ic_settings
     val AlarmCreated = R.drawable.ic_alarm_created
     val AlarmCreateFilled = R.drawable.ic_alarm_created_filled

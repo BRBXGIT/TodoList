@@ -13,7 +13,7 @@ class TodoListAlarmReceiver: BroadcastReceiver() {
         val todoTitle = intent?.getStringExtra("todoTitle")
 
         val notification = NotificationCompat.Builder(context, "tl_notifications")
-            .setSmallIcon(R.drawable.ic_add_alarm_filled)
+            .setSmallIcon(R.drawable.ic_todo_list)
             .setContentTitle("TodoList")
             .setContentText("Time to to do $todoTitle")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

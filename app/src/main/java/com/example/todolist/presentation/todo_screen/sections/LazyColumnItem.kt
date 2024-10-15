@@ -36,7 +36,7 @@ fun LazyColumnItem(
         actions = {
             if(todo.alarm) {
                 ActionButton(
-                    icon = TodoListIcons.BinFilled,
+                    icon = TodoListIcons.Bin,
                     onClick = {
                         isRevealed = false
                         todoScreenVM.updateAlarmStatus(todo.id, false)
@@ -53,7 +53,7 @@ fun LazyColumnItem(
                 )
             } else {
                 ActionButton(
-                    icon = TodoListIcons.AddAlarmFilled,
+                    icon = TodoListIcons.AddAlarm,
                     onClick = {
                         isRevealed = false
                         todoScreenVM.updateAlarmStatus(todo.id, true)
