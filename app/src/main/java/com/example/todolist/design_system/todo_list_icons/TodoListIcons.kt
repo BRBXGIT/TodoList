@@ -17,4 +17,6 @@ object TodoListIcons {
     val VKFilled = R.drawable.ic_vk_filled
     val GitHubFilled = R.drawable.ic_github_filled
     val NavigationArrowLeft = R.drawable.ic_navigation_arrow_left
+    val MagicStickFilled = R.drawable.ic_magic_stick_filled
+    val CrossFilled = R.drawable.ic_cross_filled
 }

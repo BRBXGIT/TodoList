@@ -44,6 +44,7 @@ import com.example.todolist.presentation.settings_screen.navigation.SettingsScre
 import com.example.todolist.presentation.todo_screen.sections.CheckPermissions
 import com.example.todolist.presentation.todo_screen.sections.CreateTodoBS
 import com.example.todolist.presentation.todo_screen.sections.LazyColumnItem
+import com.example.todolist.presentation.todo_screen.sections.TutorialSection
 import com.example.todolist.ui.theme.mColors
 import kotlinx.coroutines.launch
 
@@ -138,6 +139,12 @@ fun TodoScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
+            item {
+                TutorialSection(
+                    modifier = Modifier.animateItem()
+                )
+            }
+
             if(!showItemsWithAlarm) {
                 if(uncompletedItems.isNotEmpty()) {
                     item {

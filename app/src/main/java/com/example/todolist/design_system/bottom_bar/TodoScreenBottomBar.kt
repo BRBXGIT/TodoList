@@ -1,11 +1,10 @@
 package com.example.todolist.design_system.bottom_bar
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.BottomAppBarScrollBehavior
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -29,9 +28,9 @@ fun TodoScreenBottomBar(
         scrollBehavior = scrollBehavior,
     ) {
         AnimatedVisibility(
-            visible = scrollBehavior.state.heightOffset == 0f,
-            enter = fadeIn(tween(300)) + slideInVertically(tween(300)) { it / 2 },
-            exit = fadeOut(tween(300)) + slideOutVertically(tween(300)) { it / 2 }
+            visible = scrollBehavior.state.heightOffset != scrollBehavior.state.heightOffsetLimit,
+            enter = fadeIn(tween(500)) + slideInVertically(tween(500)) { it / 2 },
+            exit = ExitTransition.None
         ) {
             IconButton(
                 onClick = { onSettingsButtonClick() },
@@ -44,9 +43,9 @@ fun TodoScreenBottomBar(
         }
 
         AnimatedVisibility(
-            visible = scrollBehavior.state.heightOffset == 0f,
-            enter = fadeIn(tween(300)) + slideInVertically(tween(300)) { it / 2 },
-            exit = fadeOut(tween(300)) + slideOutVertically(tween(300)) { it / 2 }
+            visible = scrollBehavior.state.heightOffset != scrollBehavior.state.heightOffsetLimit,
+            enter = fadeIn(tween(700)) + slideInVertically(tween(700)) { it / 2 },
+            exit = ExitTransition.None
         ) {
             IconButton(
                 onClick = { onAlarmButtonClick() }
