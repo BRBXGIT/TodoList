@@ -9,28 +9,20 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.todolist.design_system.snackbars.SnackbarController
-import com.example.todolist.design_system.snackbars.SnackbarEvent
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mTypography
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Composable
 fun VersionPrivacyPolicySection(
     context: Context = LocalContext.current,
-    scope: CoroutineScope = rememberCoroutineScope()
 ) {
     val clipboardManager = LocalClipboardManager.current
     val versionText = "Version"
@@ -40,13 +32,6 @@ fun VersionPrivacyPolicySection(
             .fillMaxWidth()
             .clickable {
                 clipboardManager.setText(AnnotatedString("$versionText $versionCodeText"))
-                scope.launch {
-                    SnackbarController.sendEvent(
-                        SnackbarEvent(
-                            message = "Copied to clipboard"
-                        )
-                    )
-                }
             }
             .padding(horizontal = 16.dp),
         contentAlignment = Alignment.CenterStart

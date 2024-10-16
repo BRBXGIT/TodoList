@@ -43,6 +43,7 @@ import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
 import com.example.todolist.presentation.settings_screen.navigation.SettingsScreenRoute
 import com.example.todolist.presentation.todo_screen.sections.CheckPermissions
 import com.example.todolist.presentation.todo_screen.sections.CreateTodoBS
+import com.example.todolist.presentation.todo_screen.sections.EmptyTodoListSection
 import com.example.todolist.presentation.todo_screen.sections.LazyColumnItem
 import com.example.todolist.presentation.todo_screen.sections.TutorialSection
 import com.example.todolist.ui.theme.mColors
@@ -164,6 +165,10 @@ fun TodoScreen(
                                 .animateItem()
                         )
                     }
+                } else {
+                    item {
+                        EmptyTodoListSection(modifier = Modifier.animateItem())
+                    }
                 }
 
                 if(completedItems.isNotEmpty()) {
@@ -186,22 +191,30 @@ fun TodoScreen(
                     }
                 }
             } else {
-                item {
-                    Text(
-                        text = "Todos with alarm: ",
-                        modifier = Modifier.animateItem()
-                    )
-                }
+                if(itemsWithAlarm.isNotEmpty()) {
+                    item {
+                        Text(
+                            text = "Todos with alarm: ",
+                            modifier = Modifier.animateItem()
+                        )
+                    }
 
-                items(itemsWithAlarm, key = { it.id }) { todo ->
-                    LazyColumnItem(
-                        todo = todo,
-                        todoScreenVM = todoScreenVM,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(IntrinsicSize.Min)
-                            .animateItem()
-                    )
+                    items(itemsWithAlarm, key = { it.id }) { todo ->
+                        LazyColumnItem(
+                            todo = todo,
+                            todoScreenVM = todoScreenVM,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(IntrinsicSize.Min)
+                                .animateItem()
+                        )
+                    }
+                } else {
+                    item {
+                        EmptyTodoListSection(
+                            modifier = Modifier.animateItem()
+                        )
+                    }
                 }
             }
         }

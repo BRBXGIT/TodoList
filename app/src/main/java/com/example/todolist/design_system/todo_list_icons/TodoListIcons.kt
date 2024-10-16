@@ -8,7 +8,7 @@ object TodoListIcons {
     val Calendar = R.drawable.ic_calendar
     val PlusFilled = R.drawable.ic_plus_filled
     val AddAlarm = R.drawable.ic_add_alarm
-    val CheckFilled = R.drawable.ic_check_filled
+    val CheckRounded = R.drawable.ic_check_rounded
     val Bin = R.drawable.ic_bin
     val Settings = R.drawable.ic_settings
     val AlarmCreated = R.drawable.ic_alarm_created
