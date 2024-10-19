@@ -239,6 +239,235 @@ val darkSakuraScheme = darkColorScheme(
     surfaceContainerHighest = surfaceContainerHighestSakuraDark,
 )
 
+val lightAquamarineScheme = lightColorScheme(
+    primary = primaryAquamarineLight,
+    onPrimary = onPrimaryAquamarineLight,
+    primaryContainer = primaryContainerAquamarineLight,
+    onPrimaryContainer = onPrimaryContainerAquamarineLight,
+    secondary = secondaryAquamarineLight,
+    onSecondary = onSecondaryAquamarineLight,
+    secondaryContainer = secondaryContainerAquamarineLight,
+    onSecondaryContainer = onSecondaryContainerAquamarineLight,
+    tertiary = tertiaryAquamarineLight,
+    onTertiary = onTertiaryAquamarineLight,
+    tertiaryContainer = tertiaryContainerAquamarineLight,
+    onTertiaryContainer = onTertiaryContainerAquamarineLight,
+    error = errorAquamarineLight,
+    onError = onErrorAquamarineLight,
+    errorContainer = errorContainerAquamarineLight,
+    onErrorContainer = onErrorContainerAquamarineLight,
+    background = backgroundAquamarineLight,
+    onBackground = onBackgroundAquamarineLight,
+    surface = surfaceAquamarineLight,
+    onSurface = onSurfaceAquamarineLight,
+    surfaceVariant = surfaceVariantAquamarineLight,
+    onSurfaceVariant = onSurfaceVariantAquamarineLight,
+    outline = outlineAquamarineLight,
+    outlineVariant = outlineVariantAquamarineLight,
+    scrim = scrimAquamarineLight,
+    inverseSurface = inverseSurfaceAquamarineLight,
+    inverseOnSurface = inverseOnSurfaceAquamarineLight,
+    inversePrimary = inversePrimaryAquamarineLight,
+    surfaceDim = surfaceDimAquamarineLight,
+    surfaceBright = surfaceBrightAquamarineLight,
+    surfaceContainerLowest = surfaceContainerLowestAquamarineLight,
+    surfaceContainerLow = surfaceContainerLowAquamarineLight,
+    surfaceContainer = surfaceContainerAquamarineLight,
+    surfaceContainerHigh = surfaceContainerHighAquamarineLight,
+    surfaceContainerHighest = surfaceContainerHighestAquamarineLight,
+)
+
+val darkAquamarineScheme = darkColorScheme(
+    primary = primaryAquamarineDark,
+    onPrimary = onPrimaryAquamarineDark,
+    primaryContainer = primaryContainerAquamarineDark,
+    onPrimaryContainer = onPrimaryContainerAquamarineDark,
+    secondary = secondaryAquamarineDark,
+    onSecondary = onSecondaryAquamarineDark,
+    secondaryContainer = secondaryContainerAquamarineDark,
+    onSecondaryContainer = onSecondaryContainerAquamarineDark,
+    tertiary = tertiaryAquamarineDark,
+    onTertiary = onTertiaryAquamarineDark,
+    tertiaryContainer = tertiaryContainerAquamarineDark,
+    onTertiaryContainer = onTertiaryContainerAquamarineDark,
+    error = errorAquamarineDark,
+    onError = onErrorAquamarineDark,
+    errorContainer = errorContainerAquamarineDark,
+    onErrorContainer = onErrorContainerAquamarineDark,
+    background = backgroundAquamarineDark,
+    onBackground = onBackgroundAquamarineDark,
+    surface = surfaceAquamarineDark,
+    onSurface = onSurfaceAquamarineDark,
+    surfaceVariant = surfaceVariantAquamarineDark,
+    onSurfaceVariant = onSurfaceVariantAquamarineDark,
+    outline = outlineAquamarineDark,
+    outlineVariant = outlineVariantAquamarineDark,
+    scrim = scrimAquamarineDark,
+    inverseSurface = inverseSurfaceAquamarineDark,
+    inverseOnSurface = inverseOnSurfaceAquamarineDark,
+    inversePrimary = inversePrimaryAquamarineDark,
+    surfaceDim = surfaceDimAquamarineDark,
+    surfaceBright = surfaceBrightAquamarineDark,
+    surfaceContainerLowest = surfaceContainerLowestAquamarineDark,
+    surfaceContainerLow = surfaceContainerLowAquamarineDark,
+    surfaceContainer = surfaceContainerAquamarineDark,
+    surfaceContainerHigh = surfaceContainerHighAquamarineDark,
+    surfaceContainerHighest = surfaceContainerHighestAquamarineDark
+)
+
+val lightDaiquiriScheme = lightColorScheme(
+    primary = primaryDaiquiriLight,
+    onPrimary = onPrimaryDaiquiriLight,
+    primaryContainer = primaryContainerDaiquiriLight,
+    onPrimaryContainer = onPrimaryContainerDaiquiriLight,
+    secondary = secondaryDaiquiriLight,
+    onSecondary = onSecondaryDaiquiriLight,
+    secondaryContainer = secondaryContainerDaiquiriLight,
+    onSecondaryContainer = onSecondaryContainerDaiquiriLight,
+    tertiary = tertiaryDaiquiriLight,
+    onTertiary = onTertiaryDaiquiriLight,
+    tertiaryContainer = tertiaryContainerDaiquiriLight,
+    onTertiaryContainer = onTertiaryContainerDaiquiriLight,
+    error = errorDaiquiriLight,
+    onError = onErrorDaiquiriLight,
+    errorContainer = errorContainerDaiquiriLight,
+    onErrorContainer = onErrorContainerDaiquiriLight,
+    background = backgroundDaiquiriLight,
+    onBackground = onBackgroundDaiquiriLight,
+    surface = surfaceDaiquiriLight,
+    onSurface = onSurfaceDaiquiriLight,
+    surfaceVariant = surfaceVariantDaiquiriLight,
+    onSurfaceVariant = onSurfaceVariantDaiquiriLight,
+    outline = outlineDaiquiriLight,
+    outlineVariant = outlineVariantDaiquiriLight,
+    scrim = scrimDaiquiriLight,
+    inverseSurface = inverseSurfaceDaiquiriLight,
+    inverseOnSurface = inverseOnSurfaceDaiquiriLight,
+    inversePrimary = inversePrimaryDaiquiriLight,
+    surfaceDim = surfaceDimDaiquiriLight,
+    surfaceBright = surfaceBrightDaiquiriLight,
+    surfaceContainerLowest = surfaceContainerLowestDaiquiriLight,
+    surfaceContainerLow = surfaceContainerLowDaiquiriLight,
+    surfaceContainer = surfaceContainerDaiquiriLight,
+    surfaceContainerHigh = surfaceContainerHighDaiquiriLight,
+    surfaceContainerHighest = surfaceContainerHighestDaiquiriLight,
+)
+
+val darkDaiquiriScheme = darkColorScheme(
+    primary = primaryDaiquiriDark,
+    onPrimary = onPrimaryDaiquiriDark,
+    primaryContainer = primaryContainerDaiquiriDark,
+    onPrimaryContainer = onPrimaryContainerDaiquiriDark,
+    secondary = secondaryDaiquiriDark,
+    onSecondary = onSecondaryDaiquiriDark,
+    secondaryContainer = secondaryContainerDaiquiriDark,
+    onSecondaryContainer = onSecondaryContainerDaiquiriDark,
+    tertiary = tertiaryDaiquiriDark,
+    onTertiary = onTertiaryDaiquiriDark,
+    tertiaryContainer = tertiaryContainerDaiquiriDark,
+    onTertiaryContainer = onTertiaryContainerDaiquiriDark,
+    error = errorDaiquiriDark,
+    onError = onErrorDaiquiriDark,
+    errorContainer = errorContainerDaiquiriDark,
+    onErrorContainer = onErrorContainerDaiquiriDark,
+    background = backgroundDaiquiriDark,
+    onBackground = onBackgroundDaiquiriDark,
+    surface = surfaceDaiquiriDark,
+    onSurface = onSurfaceDaiquiriDark,
+    surfaceVariant = surfaceVariantDaiquiriDark,
+    onSurfaceVariant = onSurfaceVariantDaiquiriDark,
+    outline = outlineDaiquiriDark,
+    outlineVariant = outlineVariantDaiquiriDark,
+    scrim = scrimDaiquiriDark,
+    inverseSurface = inverseSurfaceDaiquiriDark,
+    inverseOnSurface = inverseOnSurfaceDaiquiriDark,
+    inversePrimary = inversePrimaryDaiquiriDark,
+    surfaceDim = surfaceDimDaiquiriDark,
+    surfaceBright = surfaceBrightDaiquiriDark,
+    surfaceContainerLowest = surfaceContainerLowestDaiquiriDark,
+    surfaceContainerLow = surfaceContainerLowDaiquiriDark,
+    surfaceContainer = surfaceContainerDaiquiriDark,
+    surfaceContainerHigh = surfaceContainerHighDaiquiriDark,
+    surfaceContainerHighest = surfaceContainerHighestDaiquiriDark,
+)
+
+val lightTacosScheme = lightColorScheme(
+    primary = primaryTacosLight,
+    onPrimary = onPrimaryTacosLight,
+    primaryContainer = primaryContainerTacosLight,
+    onPrimaryContainer = onPrimaryContainerTacosLight,
+    secondary = secondaryTacosLight,
+    onSecondary = onSecondaryTacosLight,
+    secondaryContainer = secondaryContainerTacosLight,
+    onSecondaryContainer = onSecondaryContainerTacosLight,
+    tertiary = tertiaryTacosLight,
+    onTertiary = onTertiaryTacosLight,
+    tertiaryContainer = tertiaryContainerTacosLight,
+    onTertiaryContainer = onTertiaryContainerTacosLight,
+    error = errorTacosLight,
+    onError = onErrorTacosLight,
+    errorContainer = errorContainerTacosLight,
+    onErrorContainer = onErrorContainerTacosLight,
+    background = backgroundTacosLight,
+    onBackground = onBackgroundTacosLight,
+    surface = surfaceTacosLight,
+    onSurface = onSurfaceTacosLight,
+    surfaceVariant = surfaceVariantTacosLight,
+    onSurfaceVariant = onSurfaceVariantTacosLight,
+    outline = outlineTacosLight,
+    outlineVariant = outlineVariantTacosLight,
+    scrim = scrimTacosLight,
+    inverseSurface = inverseSurfaceTacosLight,
+    inverseOnSurface = inverseOnSurfaceTacosLight,
+    inversePrimary = inversePrimaryTacosLight,
+    surfaceDim = surfaceDimTacosLight,
+    surfaceBright = surfaceBrightTacosLight,
+    surfaceContainerLowest = surfaceContainerLowestTacosLight,
+    surfaceContainerLow = surfaceContainerLowTacosLight,
+    surfaceContainer = surfaceContainerTacosLight,
+    surfaceContainerHigh = surfaceContainerHighTacosLight,
+    surfaceContainerHighest = surfaceContainerHighestTacosLight,
+)
+
+val darkTacosScheme = darkColorScheme(
+    primary = primaryTacosDark,
+    onPrimary = onPrimaryTacosDark,
+    primaryContainer = primaryContainerTacosDark,
+    onPrimaryContainer = onPrimaryContainerTacosDark,
+    secondary = secondaryTacosDark,
+    onSecondary = onSecondaryTacosDark,
+    secondaryContainer = secondaryContainerTacosDark,
+    onSecondaryContainer = onSecondaryContainerTacosDark,
+    tertiary = tertiaryTacosDark,
+    onTertiary = onTertiaryTacosDark,
+    tertiaryContainer = tertiaryContainerTacosDark,
+    onTertiaryContainer = onTertiaryContainerTacosDark,
+    error = errorTacosDark,
+    onError = onErrorTacosDark,
+    errorContainer = errorContainerTacosDark,
+    onErrorContainer = onErrorContainerTacosDark,
+    background = backgroundTacosDark,
+    onBackground = onBackgroundTacosDark,
+    surface = surfaceTacosDark,
+    onSurface = onSurfaceTacosDark,
+    surfaceVariant = surfaceVariantTacosDark,
+    onSurfaceVariant = onSurfaceVariantTacosDark,
+    outline = outlineTacosDark,
+    outlineVariant = outlineVariantTacosDark,
+    scrim = scrimTacosDark,
+    inverseSurface = inverseSurfaceTacosDark,
+    inverseOnSurface = inverseOnSurfaceTacosDark,
+    inversePrimary = inversePrimaryTacosDark,
+    surfaceDim = surfaceDimTacosDark,
+    surfaceBright = surfaceBrightTacosDark,
+    surfaceContainerLowest = surfaceContainerLowestTacosDark,
+    surfaceContainerLow = surfaceContainerLowTacosDark,
+    surfaceContainer = surfaceContainerTacosDark,
+    surfaceContainerHigh = surfaceContainerHighTacosDark,
+    surfaceContainerHighest = surfaceContainerHighestTacosDark,
+)
+
+
 @Composable
 fun TodoListTheme(
     colorSystem: String,
@@ -257,6 +486,12 @@ fun TodoListTheme(
                 "darkGreenApple" -> darkGreenAppleScheme
                 "lightSakura" -> darkSakuraScheme
                 "darkSakura" -> darkSakuraScheme
+                "lightAquamarine" -> darkAquamarineScheme
+                "darkAquamarine" ->darkAquamarineScheme
+                "lightDaiquiri" -> darkDaiquiriScheme
+                "darkDaiquiri" -> darkDaiquiriScheme
+                "lightTacos" -> darkTacosScheme
+                "darkTacos" -> darkTacosScheme
                 else -> darkScheme
             }
         } else {
@@ -268,6 +503,12 @@ fun TodoListTheme(
                 "darkGreenApple" -> lightGreenAppleScheme
                 "lightSakura" -> lightSakuraScheme
                 "darkSakura" -> lightSakuraScheme
+                "lightAquamarine" -> lightAquamarineScheme
+                "darkAquamarine" ->lightAquamarineScheme
+                "lightDaiquiri" -> lightDaiquiriScheme
+                "darkDaiquiri" -> lightDaiquiriScheme
+                "lightTacos" -> lightTacosScheme
+                "darkTacos" -> lightTacosScheme
                 else -> lightScheme
             }
         }
@@ -279,6 +520,12 @@ fun TodoListTheme(
             "darkGreenApple" -> darkGreenAppleScheme
             "lightSakura" -> darkSakuraScheme
             "darkSakura" -> darkSakuraScheme
+            "lightAquamarine" -> darkAquamarineScheme
+            "darkAquamarine" ->darkAquamarineScheme
+            "lightDaiquiri" -> darkDaiquiriScheme
+            "darkDaiquiri" -> darkDaiquiriScheme
+            "lightTacos" -> darkTacosScheme
+            "darkTacos" -> darkTacosScheme
             else -> darkScheme
         }
         "light" -> when(colorSystem) {
@@ -289,6 +536,12 @@ fun TodoListTheme(
             "darkGreenApple" -> lightGreenAppleScheme
             "lightSakura" -> lightSakuraScheme
             "darkSakura" -> lightSakuraScheme
+            "lightAquamarine" -> lightAquamarineScheme
+            "darkAquamarine" ->lightAquamarineScheme
+            "lightDaiquiri" -> lightDaiquiriScheme
+            "darkDaiquiri" -> lightDaiquiriScheme
+            "lightTacos" -> lightTacosScheme
+            "darkTacos" -> lightTacosScheme
             else -> lightScheme
         }
         else -> if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

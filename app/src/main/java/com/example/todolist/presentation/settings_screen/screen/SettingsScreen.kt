@@ -73,11 +73,22 @@ fun SettingsScreen(
 
             VersionPrivacyPolicySection()
 
-            SocialNetworksSection()
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Text(
+                    text = "Theme",
+                    modifier = Modifier.padding(start = 16.dp)
+                )
+
+                ThemePreviewsSection()
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            ThemePreviewsSection()
+            SocialNetworksSection()
         }
     }
 }

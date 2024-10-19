@@ -1,5 +1,6 @@
 package com.example.todolist.presentation.settings_screen.sections.theme_previews_section
 
+import android.os.Build
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -23,17 +24,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.todolist.common.app_settings.ThemeVM
+import com.example.todolist.ui.theme.darkAquamarineScheme
+import com.example.todolist.ui.theme.darkDaiquiriScheme
 import com.example.todolist.ui.theme.darkGreenAppleScheme
 import com.example.todolist.ui.theme.darkSakuraScheme
 import com.example.todolist.ui.theme.darkScheme
+import com.example.todolist.ui.theme.darkTacosScheme
+import com.example.todolist.ui.theme.lightAquamarineScheme
+import com.example.todolist.ui.theme.lightDaiquiriScheme
 import com.example.todolist.ui.theme.lightGreenAppleScheme
 import com.example.todolist.ui.theme.lightSakuraScheme
 import com.example.todolist.ui.theme.lightScheme
+import com.example.todolist.ui.theme.lightTacosScheme
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mShapes
 import com.example.todolist.ui.theme.mTypography
@@ -78,11 +84,13 @@ fun ThemePreviewsSection(
                 chosenTheme = chosenTheme
             )
 
-            ThemeElement(
-                text = "dynamic",
-                onClick = { themeVM.changeTheme("dynamic") },
-                chosenTheme = chosenTheme
-            )
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                ThemeElement(
+                    text = "dynamic",
+                    onClick = { themeVM.changeTheme("dynamic") },
+                    chosenTheme = chosenTheme
+                )
+            }
         }
 
         ColorSystemElements(
@@ -139,7 +147,8 @@ fun ColorSystemElements(
             surfaceContainer = darkScheme.surfaceContainer,
             onSecondaryContainer = darkScheme.onSecondaryContainer,
             primaryContainer = darkScheme.primaryContainer,
-            name = "darkScheme"
+            name = "darkScheme",
+            previewName = "Lavender"
         ),
         ColorSystemPreviewColors(
             background = darkGreenAppleScheme.background,
@@ -147,7 +156,8 @@ fun ColorSystemElements(
             surfaceContainer = darkGreenAppleScheme.surfaceContainer,
             onSecondaryContainer = darkGreenAppleScheme.onSecondaryContainer,
             primaryContainer = darkGreenAppleScheme.primaryContainer,
-            name = "darkGreenApple"
+            name = "darkGreenApple",
+            previewName = "Green apple"
         ),
         ColorSystemPreviewColors(
             background = darkSakuraScheme.background,
@@ -155,8 +165,36 @@ fun ColorSystemElements(
             surfaceContainer = darkSakuraScheme.surfaceContainer,
             onSecondaryContainer = darkSakuraScheme.onSecondaryContainer,
             primaryContainer = darkSakuraScheme.primaryContainer,
-            name = "darkSakura"
-        )
+            name = "darkSakura",
+            previewName = "Sakura"
+        ),
+        ColorSystemPreviewColors(
+            background = darkAquamarineScheme.background,
+            surfaceContainerHighest = darkAquamarineScheme.surfaceContainerHighest,
+            surfaceContainer = darkAquamarineScheme.surfaceContainer,
+            onSecondaryContainer = darkAquamarineScheme.onSecondaryContainer,
+            primaryContainer = darkAquamarineScheme.primaryContainer,
+            name = "darkAquamarine",
+            previewName = "Aquamarine"
+        ),
+        ColorSystemPreviewColors(
+            background = darkDaiquiriScheme.background,
+            surfaceContainerHighest = darkDaiquiriScheme.surfaceContainerHighest,
+            surfaceContainer = darkDaiquiriScheme.surfaceContainer,
+            onSecondaryContainer = darkDaiquiriScheme.onSecondaryContainer,
+            primaryContainer = darkDaiquiriScheme.primaryContainer,
+            name = "darkDaiquiri",
+            previewName = "Daiquiri"
+        ),
+        ColorSystemPreviewColors(
+            background = darkTacosScheme.background,
+            surfaceContainerHighest = darkTacosScheme.surfaceContainerHighest,
+            surfaceContainer = darkTacosScheme.surfaceContainer,
+            onSecondaryContainer = darkTacosScheme.onSecondaryContainer,
+            primaryContainer = darkTacosScheme.primaryContainer,
+            name = "darkTacos",
+            previewName = "Tacos"
+        ),
     )
 
     val lightColorSystems = listOf(
@@ -166,7 +204,8 @@ fun ColorSystemElements(
             surfaceContainer = lightScheme.surfaceContainer,
             onSecondaryContainer = lightScheme.onSecondaryContainer,
             primaryContainer = lightScheme.primaryContainer,
-            name = "light"
+            name = "light",
+            previewName = "Lavender"
         ),
         ColorSystemPreviewColors(
             background = lightGreenAppleScheme.background,
@@ -174,7 +213,8 @@ fun ColorSystemElements(
             surfaceContainer = lightGreenAppleScheme.surfaceContainer,
             onSecondaryContainer = lightGreenAppleScheme.onSecondaryContainer,
             primaryContainer = lightGreenAppleScheme.primaryContainer,
-            name = "lightGreenApple"
+            name = "lightGreenApple",
+            previewName = "Green apple"
         ),
         ColorSystemPreviewColors(
             background = lightSakuraScheme.background,
@@ -182,7 +222,35 @@ fun ColorSystemElements(
             surfaceContainer = lightSakuraScheme.surfaceContainer,
             onSecondaryContainer = lightSakuraScheme.onSecondaryContainer,
             primaryContainer = lightSakuraScheme.primaryContainer,
-            name = "lightSakura"
+            name = "lightSakura",
+            previewName = "Sakura"
+        ),
+        ColorSystemPreviewColors(
+            background = lightAquamarineScheme.background,
+            surfaceContainerHighest = lightAquamarineScheme.surfaceContainerHighest,
+            surfaceContainer = lightAquamarineScheme.surfaceContainer,
+            onSecondaryContainer = lightAquamarineScheme.onSecondaryContainer,
+            primaryContainer = lightAquamarineScheme.primaryContainer,
+            name = "lightAquamarine",
+            previewName = "Aquamarine"
+        ),
+        ColorSystemPreviewColors(
+            background = lightDaiquiriScheme.background,
+            surfaceContainerHighest = lightDaiquiriScheme.surfaceContainerHighest,
+            surfaceContainer = lightDaiquiriScheme.surfaceContainer,
+            onSecondaryContainer = lightDaiquiriScheme.onSecondaryContainer,
+            primaryContainer = lightDaiquiriScheme.primaryContainer,
+            name = "lightDaiquiri",
+            previewName = "Daiquiri"
+        ),
+        ColorSystemPreviewColors(
+            background = lightTacosScheme.background,
+            surfaceContainerHighest = lightTacosScheme.surfaceContainerHighest,
+            surfaceContainer = lightTacosScheme.surfaceContainer,
+            onSecondaryContainer = lightTacosScheme.onSecondaryContainer,
+            primaryContainer = lightTacosScheme.primaryContainer,
+            name = "lightTacos",
+            previewName = "Tacos"
         )
     )
 
@@ -205,6 +273,7 @@ fun ColorSystemElements(
                         primaryContainer = colorSystem.primaryContainer,
                         chosenColorSystem = chosenColorSystem,
                         name = colorSystem.name,
+                        previewName = colorSystem.previewName,
                         onClick = { onColorSystemClick(colorSystem.name) }
                     )
                 }
@@ -218,6 +287,7 @@ fun ColorSystemElements(
                         primaryContainer = colorSystem.primaryContainer,
                         chosenColorSystem = chosenColorSystem,
                         name = colorSystem.name,
+                        previewName = colorSystem.previewName,
                         onClick = { onColorSystemClick(colorSystem.name) }
                     )
                 }
@@ -232,6 +302,7 @@ fun ColorSystemElements(
                         primaryContainer = colorSystem.primaryContainer,
                         chosenColorSystem = chosenColorSystem,
                         name = colorSystem.name,
+                        previewName = colorSystem.previewName,
                         onClick = { onColorSystemClick(colorSystem.name) }
                     )
                 }
@@ -246,6 +317,7 @@ fun ColorSystemElements(
                         primaryContainer = colorSystem.primaryContainer,
                         chosenColorSystem = chosenColorSystem,
                         name = colorSystem.name,
+                        previewName = colorSystem.previewName,
                         onClick = { onColorSystemClick(colorSystem.name) }
                     )
                 }
