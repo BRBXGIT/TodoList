@@ -22,6 +22,7 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,8 +33,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.bottom_bar.TodoScreenBottomBar
 import com.example.todolist.design_system.snackbars.ObserveAsEvents
 import com.example.todolist.design_system.snackbars.SnackbarController
@@ -54,7 +57,8 @@ fun TodoScreen(
     todoScreenVM: TodoScreenVM,
     todoScreenTopBarVM: TodoScreenTopBarVM,
     context: Context = LocalContext.current,
-    navController: NavHostController
+    navController: NavHostController,
+    appSettingsVM: AppSettingsVM = hiltViewModel<AppSettingsVM>()
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -129,6 +133,7 @@ fun TodoScreen(
             todo.alarm
         }
 
+        val tutorialCompleted by appSettingsVM.tutorialCompleted.collectAsState(initial = false)
         LazyColumn(
             contentPadding = PaddingValues(
                 horizontal = 16.dp,
@@ -139,10 +144,13 @@ fun TodoScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            item {
-                TutorialSection(
-                    modifier = Modifier.animateItem()
-                )
+            if(!tutorialCompleted) {
+                item {
+                    TutorialSection(
+                        modifier = Modifier.animateItem(),
+                        onDeleteButtonClick = { appSettingsVM.setTutorialCompleted() }
+                    )
+                }
             }
 
             if(!showItemsWithAlarm) {

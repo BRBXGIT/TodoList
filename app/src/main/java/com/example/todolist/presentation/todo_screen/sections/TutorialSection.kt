@@ -25,7 +25,8 @@ import com.example.todolist.ui.theme.mTypography
 
 @Composable
 fun TutorialSection(
-    modifier: Modifier
+    modifier: Modifier,
+    onDeleteButtonClick: () -> Unit
 ) {
     Surface(
         color = mColors.tertiaryContainer,
@@ -44,7 +45,7 @@ fun TutorialSection(
                 contentDescription = null,
                 modifier = Modifier
                     .clip(CircleShape)
-                    .clickable {  }
+                    .clickable { onDeleteButtonClick() }
             )
 
             Row(

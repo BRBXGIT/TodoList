@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
 import com.example.todolist.presentation.settings_screen.sections.LogoSection
 import com.example.todolist.presentation.settings_screen.sections.SocialNetworksSection
@@ -32,6 +33,7 @@ import com.example.todolist.ui.theme.mTypography
 @Composable
 fun SettingsScreen(
     navController: NavHostController,
+    appSettingsVM: AppSettingsVM
 ) {
     Scaffold(
         topBar = {
@@ -83,7 +85,7 @@ fun SettingsScreen(
                     modifier = Modifier.padding(start = 16.dp)
                 )
 
-                ThemePreviewsSection()
+                ThemePreviewsSection(appSettingsVM)
             }
 
             Spacer(modifier = Modifier.height(16.dp))

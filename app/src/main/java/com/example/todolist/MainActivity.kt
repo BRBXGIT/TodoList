@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.todolist.common.app_settings.ThemeVM
+import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.common.navigation.NavGraph
 import com.example.todolist.ui.theme.TodoListTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,15 +18,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val themeVM = hiltViewModel<ThemeVM>()
-            val theme by themeVM.theme.collectAsState(initial = "default")
-            val colorSystem by themeVM.colorSystem.collectAsState(initial = "default")
+            val appSettingsVM = hiltViewModel<AppSettingsVM>()
+            val theme by appSettingsVM.theme.collectAsState(initial = "default")
+            val colorSystem by appSettingsVM.colorSystem.collectAsState(initial = "default")
 
             TodoListTheme(
                 theme = theme,
                 colorSystem = colorSystem
             ) {
-                NavGraph()
+                NavGraph(appSettingsVM)
             }
         }
     }

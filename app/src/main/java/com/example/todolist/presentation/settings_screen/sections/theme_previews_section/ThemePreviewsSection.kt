@@ -26,8 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.todolist.common.app_settings.ThemeVM
+import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.ui.theme.darkAquamarineScheme
 import com.example.todolist.ui.theme.darkDaiquiriScheme
 import com.example.todolist.ui.theme.darkGreenAppleScheme
@@ -46,10 +45,10 @@ import com.example.todolist.ui.theme.mTypography
 
 @Composable
 fun ThemePreviewsSection(
-    themeVM: ThemeVM = hiltViewModel<ThemeVM>()
+    appSettingsVM: AppSettingsVM
 ) {
-    val chosenTheme by themeVM.theme.collectAsState(initial = "default")
-    val chosenColorSystem by themeVM.colorSystem.collectAsState(initial = "default")
+    val chosenTheme by appSettingsVM.theme.collectAsState(initial = "default")
+    val chosenColorSystem by appSettingsVM.colorSystem.collectAsState(initial = "default")
 
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -68,26 +67,26 @@ fun ThemePreviewsSection(
         ) {
             ThemeElement(
                 text = "default",
-                onClick = { themeVM.changeTheme("default") },
+                onClick = { appSettingsVM.changeTheme("default") },
                 chosenTheme = chosenTheme
             )
 
             ThemeElement(
                 text = "light",
-                onClick = { themeVM.changeTheme("light") },
+                onClick = { appSettingsVM.changeTheme("light") },
                 chosenTheme = chosenTheme
             )
 
             ThemeElement(
                 text = "dark",
-                onClick = { themeVM.changeTheme("dark") },
+                onClick = { appSettingsVM.changeTheme("dark") },
                 chosenTheme = chosenTheme
             )
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 ThemeElement(
                     text = "dynamic",
-                    onClick = { themeVM.changeTheme("dynamic") },
+                    onClick = { appSettingsVM.changeTheme("dynamic") },
                     chosenTheme = chosenTheme
                 )
             }
@@ -95,7 +94,7 @@ fun ThemePreviewsSection(
 
         ColorSystemElements(
             chosenTheme = chosenTheme,
-            onColorSystemClick = { themeVM.changeColorSystem(it) },
+            onColorSystemClick = { appSettingsVM.changeColorSystem(it) },
             chosenColorSystem = chosenColorSystem
         )
     }

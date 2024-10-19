@@ -16,7 +16,7 @@ object AppSettingsModule {
     @Singleton
     fun provideThemeDataStore(
         @ApplicationContext context: Context
-    ): ThemeDataStore {
-        return ThemeDataStore(context)
+    ): AppDataStore {
+        return AppDataStore(context)
     }
 }
