@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.settings_screen.sections.theme_previews_section
+package com.example.todolist.presentation.settings_screen.sections
 
 import android.os.Build
 import androidx.compose.animation.animateColorAsState
@@ -120,7 +120,7 @@ fun RowScope.ThemeElement(
             .clickable {
                 onClick()
             }
-            .padding(8.dp),
+            .padding(12.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(

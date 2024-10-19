@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.settings_screen.sections.theme_previews_section
+package com.example.todolist.presentation.settings_screen.sections
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.todolist.ui.theme.mColors
@@ -67,6 +68,7 @@ fun ColorSystemPreview(
                     color = mColors.secondary,
                     shape = mShapes.small
                 )
+                .clip(mShapes.small)
                 .clickable {
                     onClick()
                 }

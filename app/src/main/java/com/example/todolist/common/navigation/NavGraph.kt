@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.todolist.common.app_settings.AppSettingsVM
+import com.example.todolist.presentation.info_screen.navigation.infoScreen
 import com.example.todolist.presentation.settings_screen.navigation.settingsScreen
 import com.example.todolist.presentation.todo_screen.navigation.TodoScreenRoute
 import com.example.todolist.presentation.todo_screen.navigation.todoScreen
@@ -24,5 +25,7 @@ fun NavGraph(
             navController = navController,
             appSettingsVM = appSettingsVM
         )
+
+        infoScreen(navController)
     }
 }

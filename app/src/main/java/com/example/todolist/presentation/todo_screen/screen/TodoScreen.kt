@@ -43,6 +43,7 @@ import com.example.todolist.design_system.snackbars.SnackbarController
 import com.example.todolist.design_system.todo_screen_fab.TodoScreenFAB
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBar
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
+import com.example.todolist.presentation.info_screen.navigation.InfoScreenRoute
 import com.example.todolist.presentation.settings_screen.navigation.SettingsScreenRoute
 import com.example.todolist.presentation.todo_screen.sections.CreateTodoBS
 import com.example.todolist.presentation.todo_screen.sections.EmptyTodoListSection
@@ -108,7 +109,8 @@ fun TodoScreen(
                 onAlarmButtonClick = { showItemsWithAlarm = !showItemsWithAlarm },
                 onlyAlarmsShowed = showItemsWithAlarm,
                 scrollBehavior = bottomBarScrollBehaviour,
-                onSettingsButtonClick = { navController.navigate(SettingsScreenRoute) }
+                onSettingsButtonClick = { navController.navigate(SettingsScreenRoute) },
+                onInfoButtonClick = { navController.navigate(InfoScreenRoute) }
             )
         },
         modifier = Modifier

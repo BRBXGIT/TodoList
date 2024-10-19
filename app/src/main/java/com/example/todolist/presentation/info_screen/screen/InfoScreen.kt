@@ -1,11 +1,9 @@
-package com.example.todolist.presentation.settings_screen.screen
+package com.example.todolist.presentation.info_screen.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,28 +18,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
-import com.example.todolist.presentation.settings_screen.sections.ThemePreviewsSection
+import com.example.todolist.presentation.info_screen.sections.LogoSection
+import com.example.todolist.presentation.info_screen.sections.SocialNetworksSection
+import com.example.todolist.presentation.info_screen.sections.VersionPrivacyPolicySection
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mTypography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(
-    navController: NavHostController,
-    appSettingsVM: AppSettingsVM
+fun InfoScreen(
+    navController: NavHostController
 ) {
     Scaffold(
+        modifier = Modifier.fillMaxSize(),
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Settings",
+                        text = "Information",
                         style = mTypography.titleMedium
                     )
                 },
-                navigationIcon = { 
+                navigationIcon = {
                     IconButton(
                         onClick = { navController.navigateUp() }
                     ) {
@@ -55,33 +54,22 @@ fun SettingsScreen(
                     containerColor = mColors.surfaceContainerHighest
                 )
             )
-        },
-        modifier = Modifier
-            .fillMaxSize()
-            .background(mColors.background)
+        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(mColors.background)
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Column(
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                Text(
-                    text = "Theme",
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-
-                ThemePreviewsSection(appSettingsVM)
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
+            LogoSection()
 
             HorizontalDivider()
+
+            VersionPrivacyPolicySection()
+
+            SocialNetworksSection()
         }
     }
 }

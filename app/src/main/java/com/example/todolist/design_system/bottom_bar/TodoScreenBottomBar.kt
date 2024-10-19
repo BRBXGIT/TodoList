@@ -21,12 +21,28 @@ fun TodoScreenBottomBar(
     onAlarmButtonClick: () -> Unit,
     onlyAlarmsShowed: Boolean,
     scrollBehavior: BottomAppBarScrollBehavior,
-    onSettingsButtonClick: () -> Unit
+    onSettingsButtonClick: () -> Unit,
+    onInfoButtonClick: () -> Unit
 ) {
     BottomAppBar(
         containerColor = mColors.surfaceContainerHighest,
         scrollBehavior = scrollBehavior,
     ) {
+        AnimatedVisibility(
+            visible = scrollBehavior.state.heightOffset != scrollBehavior.state.heightOffsetLimit,
+            enter = fadeIn(tween(500)) + slideInVertically(tween(500)) { it / 2 },
+            exit = ExitTransition.None
+        ) {
+            IconButton(
+                onClick = { onInfoButtonClick() },
+            ) {
+                Icon(
+                    painter = painterResource(id = TodoListIcons.Info),
+                    contentDescription = null,
+                )
+            }
+        }
+
         AnimatedVisibility(
             visible = scrollBehavior.state.heightOffset != scrollBehavior.state.heightOffsetLimit,
             enter = fadeIn(tween(500)) + slideInVertically(tween(500)) { it / 2 },

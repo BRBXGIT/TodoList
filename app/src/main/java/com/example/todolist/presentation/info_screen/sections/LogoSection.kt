@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.settings_screen.sections
+package com.example.todolist.presentation.info_screen.sections
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
