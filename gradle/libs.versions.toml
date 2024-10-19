@@ -20,12 +20,14 @@ kspPlugin = "1.9.0-1.0.13"
 
 lottie = "6.5.2"
 
-uiTextGoogleFonts = "1.7.3"
+uiTextGoogleFonts = "1.7.4"
 
 customPickers = "1.3.0"
 
-composeNavigation = "2.8.2"
+composeNavigation = "2.8.3"
 serialization = "1.6.3"
+
+datastorePreferences = "1.1.1"
 
 
 [libraries]
@@ -61,6 +63,8 @@ timePicker = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version.
 
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
+
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 
 
 [plugins]

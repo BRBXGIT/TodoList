@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.todo_screen.sections
+package com.example.todolist.presentation.todo_screen.screen
 
 import android.Manifest
 import android.content.Context

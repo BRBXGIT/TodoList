@@ -1,13 +1,12 @@
 package com.example.todolist.presentation.todo_screen.screen
 
-import android.app.AlarmManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todolist.common.Dispatcher
-import com.example.todolist.common.TodoListDispatchers
+import com.example.todolist.common.dispatchers.Dispatcher
+import com.example.todolist.common.dispatchers.TodoListDispatchers
 import com.example.todolist.data.db.Todo
-import com.example.todolist.data.repo.MainRepoImpl
-import com.example.todolist.data.repo.TodoListAlarmManager
+import com.example.todolist.data.repos.MainRepoImpl
+import com.example.todolist.data.repos.TodoListAlarmManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.SharingStarted

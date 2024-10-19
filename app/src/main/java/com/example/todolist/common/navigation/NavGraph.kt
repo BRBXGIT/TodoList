@@ -1,4 +1,4 @@
-package com.example.todolist.common
+package com.example.todolist.common.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

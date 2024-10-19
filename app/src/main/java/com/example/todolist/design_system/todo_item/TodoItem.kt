@@ -42,8 +42,8 @@ fun TodoItem(
     todo: Todo,
     onTodoCompletedChange: () -> Unit,
     modifier: Modifier,
-    //Swipe actions parameters
     isRevealed: Boolean,
+    //Swipe actions parameters
     actions: @Composable BoxScope.() -> Unit,
     onExpand: () -> Unit = {},
     onCollapsed: () -> Unit = {},

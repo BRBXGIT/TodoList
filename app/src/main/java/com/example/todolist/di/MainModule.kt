@@ -6,8 +6,8 @@ import android.content.Context
 import androidx.room.Room
 import com.example.todolist.data.db.TodoDao
 import com.example.todolist.data.db.TodoDb
-import com.example.todolist.data.repo.MainRepoImpl
-import com.example.todolist.data.repo.TodoListAlarmManager
+import com.example.todolist.data.repos.MainRepoImpl
+import com.example.todolist.data.repos.TodoListAlarmManager
 import com.example.todolist.domain.MainRepo
 import dagger.Module
 import dagger.Provides

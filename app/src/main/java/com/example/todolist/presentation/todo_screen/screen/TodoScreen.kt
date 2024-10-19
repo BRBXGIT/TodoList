@@ -41,7 +41,6 @@ import com.example.todolist.design_system.todo_screen_fab.TodoScreenFAB
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBar
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
 import com.example.todolist.presentation.settings_screen.navigation.SettingsScreenRoute
-import com.example.todolist.presentation.todo_screen.sections.CheckPermissions
 import com.example.todolist.presentation.todo_screen.sections.CreateTodoBS
 import com.example.todolist.presentation.todo_screen.sections.EmptyTodoListSection
 import com.example.todolist.presentation.todo_screen.sections.LazyColumnItem

@@ -1,4 +1,4 @@
-package com.example.todolist.common
+package com.example.todolist.common.dispatchers
 
 import dagger.Module
 import dagger.Provides

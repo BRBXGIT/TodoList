@@ -1,4 +1,4 @@
-package com.example.todolist.data.repo
+package com.example.todolist.data.repos
 
 import com.example.todolist.data.db.Todo
 import com.example.todolist.data.db.TodoDao

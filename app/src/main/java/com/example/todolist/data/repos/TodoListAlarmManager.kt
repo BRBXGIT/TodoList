@@ -1,4 +1,4 @@
-package com.example.todolist.data.repo
+package com.example.todolist.data.repos
 
 import android.app.AlarmManager
 import android.app.PendingIntent
