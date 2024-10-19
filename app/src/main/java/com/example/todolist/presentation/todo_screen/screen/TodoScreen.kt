@@ -173,8 +173,12 @@ fun TodoScreen(
                         )
                     }
                 } else {
-                    item {
-                        EmptyTodoListSection(modifier = Modifier.animateItem())
+                    if(completedItems.isEmpty()) {
+                        item {
+                            EmptyTodoListSection(
+                                modifier = Modifier.fillParentMaxSize(),
+                            )
+                        }
                     }
                 }
 
@@ -219,7 +223,7 @@ fun TodoScreen(
                 } else {
                     item {
                         EmptyTodoListSection(
-                            modifier = Modifier.animateItem()
+                            modifier = Modifier.fillParentMaxSize(),
                         )
                     }
                 }
