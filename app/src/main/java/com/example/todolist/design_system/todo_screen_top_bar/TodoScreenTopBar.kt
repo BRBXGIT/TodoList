@@ -67,18 +67,18 @@ fun TodoScreenTopBar(
                         painter = painterResource(id = TodoListIcons.Calendar),
                         contentDescription = null,
                         modifier = Modifier.padding(
-                            start = 4.dp,
-                            bottom = 4.dp,
-                            top = 4.dp
+                            start = 8.dp,
+                            bottom = 8.dp,
+                            top = 8.dp
                         )
                     )
 
                     Text(
                         text = date,
                         modifier = Modifier.padding(
-                            end = 4.dp,
-                            bottom = 4.dp,
-                            top = 4.dp
+                            end = 8.dp,
+                            bottom = 8.dp,
+                            top = 8.dp
                         ),
                         style = mTypography.titleMedium
                     )

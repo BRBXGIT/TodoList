@@ -29,6 +29,8 @@ serialization = "1.6.3"
 
 datastorePreferences = "1.1.1"
 
+coreSplashscreen = "1.0.1"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,6 +67,8 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 
 
 [plugins]

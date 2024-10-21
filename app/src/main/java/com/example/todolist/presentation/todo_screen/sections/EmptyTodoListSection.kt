@@ -16,8 +16,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.LineBreak
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -46,7 +44,9 @@ fun EmptyTodoListSection(
             modifier = modifier,
             contentAlignment = Alignment.Center
         ) {
-            Column {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 LottieAnimation(
                     composition = composition,
                     modifier = Modifier.size(200.dp),
@@ -55,10 +55,7 @@ fun EmptyTodoListSection(
 
                 Text(
                     text = "Nothing here, add todo",
-                    style = mTypography.bodyLarge.copy(
-                        lineBreak = LineBreak.Paragraph
-                    ),
-                    textAlign = TextAlign.Center
+                    style = mTypography.bodyLarge
                 )
             }
         }

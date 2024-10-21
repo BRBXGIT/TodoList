@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TodoList" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.TodoList" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_screen_color</item>
+        <item name="postSplashScreenTheme">@style/Theme.TodoList</item>
+    </style>
 
 </resources>

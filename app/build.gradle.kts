@@ -81,6 +81,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     //Data store
     implementation(libs.androidx.datastore.preferences)
+    //Splashscreen
+    implementation(libs.androidx.core.splashscreen)
 
 
     implementation(libs.androidx.core.ktx)
