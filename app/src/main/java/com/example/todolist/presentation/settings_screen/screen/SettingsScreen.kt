@@ -18,10 +18,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.presentation.settings_screen.sections.ThemePreviewsSection
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mTypography
@@ -37,7 +39,7 @@ fun SettingsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Settings",
+                        text = stringResource(id = TodoListStrings.settings),
                         style = mTypography.titleMedium
                     )
                 },
@@ -72,7 +74,7 @@ fun SettingsScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
-                    text = "Theme",
+                    text = stringResource(id = TodoListStrings.theme),
                     modifier = Modifier.padding(start = 16.dp)
                 )
 

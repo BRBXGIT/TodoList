@@ -32,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -40,6 +41,7 @@ import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.bottom_bar.TodoScreenBottomBar
 import com.example.todolist.design_system.snackbars.ObserveAsEvents
 import com.example.todolist.design_system.snackbars.SnackbarController
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.design_system.todo_screen_fab.TodoScreenFAB
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBar
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
@@ -159,7 +161,7 @@ fun TodoScreen(
                 if(uncompletedItems.isNotEmpty()) {
                     item {
                         Text(
-                            text = "Todo: ",
+                            text = stringResource(id = TodoListStrings.todo),
                             modifier = Modifier.animateItem()
                         )
                     }
@@ -193,7 +195,7 @@ fun TodoScreen(
                 if(completedItems.isNotEmpty()) {
                     item {
                         Text(
-                            text = "Completed: ",
+                            text = stringResource(id = TodoListStrings.completedTodos),
                             modifier = Modifier.animateItem()
                         )
                     }
@@ -213,7 +215,7 @@ fun TodoScreen(
                 if(itemsWithAlarm.isNotEmpty()) {
                     item {
                         Text(
-                            text = "Todos with alarm: ",
+                            text = stringResource(id = TodoListStrings.todosWithAlarm),
                             modifier = Modifier.animateItem()
                         )
                     }

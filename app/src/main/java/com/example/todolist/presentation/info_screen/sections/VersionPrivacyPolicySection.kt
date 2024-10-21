@@ -15,8 +15,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mTypography
 
@@ -25,8 +27,8 @@ fun VersionPrivacyPolicySection(
     context: Context = LocalContext.current,
 ) {
     val clipboardManager = LocalClipboardManager.current
-    val versionText = "Version"
-    val versionCodeText = "Stable 1.0.0 (31.08.2024)"
+    val versionText = stringResource(id = TodoListStrings.infoVersion)
+    val versionCodeText = "Stable 1.0.0 (21.10.2024)"
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -70,7 +72,7 @@ fun VersionPrivacyPolicySection(
         contentAlignment = Alignment.CenterStart
     ) {
         Text(
-            text = "Privacy policy",
+            text = stringResource(id = TodoListStrings.infoPrivacyPolicy),
             style = mTypography.bodyLarge,
             modifier = Modifier.padding(vertical = 16.dp)
         )

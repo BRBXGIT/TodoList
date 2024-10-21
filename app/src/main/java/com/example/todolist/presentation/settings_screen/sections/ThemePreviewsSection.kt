@@ -24,9 +24,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.todolist.common.app_settings.AppSettingsVM
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.ui.theme.darkAquamarineScheme
 import com.example.todolist.ui.theme.darkDaiquiriScheme
 import com.example.todolist.ui.theme.darkGreenAppleScheme
@@ -66,26 +68,30 @@ fun ThemePreviewsSection(
                 )
         ) {
             ThemeElement(
-                text = "default",
+                type = "default",
+                text = stringResource(id = TodoListStrings.settingsDefaultTheme),
                 onClick = { appSettingsVM.changeTheme("default") },
                 chosenTheme = chosenTheme
             )
 
             ThemeElement(
-                text = "light",
+                type = "light",
+                text = stringResource(id = TodoListStrings.settingsLightTheme),
                 onClick = { appSettingsVM.changeTheme("light") },
                 chosenTheme = chosenTheme
             )
 
             ThemeElement(
-                text = "dark",
+                type = "dark",
+                text = stringResource(id = TodoListStrings.settingsDarkTheme),
                 onClick = { appSettingsVM.changeTheme("dark") },
                 chosenTheme = chosenTheme
             )
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 ThemeElement(
-                    text = "dynamic",
+                    type = "dynamic",
+                    text = stringResource(id = TodoListStrings.settingsDynamicTheme),
                     onClick = { appSettingsVM.changeTheme("dynamic") },
                     chosenTheme = chosenTheme
                 )
@@ -102,11 +108,13 @@ fun ThemePreviewsSection(
 
 @Composable
 fun RowScope.ThemeElement(
+    //Light, dark, etc.
+    type: String,
     text: String,
     onClick: () -> Unit,
     chosenTheme: String
 ) {
-    val chosen = chosenTheme == text
+    val chosen = chosenTheme == type
     val chosenColor by animateColorAsState(
         targetValue = if(chosen) mColors.primaryContainer else Color.Transparent,
         label = "Animated color"
@@ -147,7 +155,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkScheme.onSecondaryContainer,
             primaryContainer = darkScheme.primaryContainer,
             name = "darkScheme",
-            previewName = "Lavender"
+            previewName = stringResource(id = TodoListStrings.themeLavender)
         ),
         ColorSystemPreviewColors(
             background = darkGreenAppleScheme.background,
@@ -156,7 +164,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkGreenAppleScheme.onSecondaryContainer,
             primaryContainer = darkGreenAppleScheme.primaryContainer,
             name = "darkGreenApple",
-            previewName = "Green apple"
+            previewName = stringResource(id = TodoListStrings.themeGreenApple)
         ),
         ColorSystemPreviewColors(
             background = darkSakuraScheme.background,
@@ -165,7 +173,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkSakuraScheme.onSecondaryContainer,
             primaryContainer = darkSakuraScheme.primaryContainer,
             name = "darkSakura",
-            previewName = "Sakura"
+            previewName = stringResource(id = TodoListStrings.themeSakura)
         ),
         ColorSystemPreviewColors(
             background = darkAquamarineScheme.background,
@@ -174,7 +182,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkAquamarineScheme.onSecondaryContainer,
             primaryContainer = darkAquamarineScheme.primaryContainer,
             name = "darkAquamarine",
-            previewName = "Aquamarine"
+            previewName = stringResource(id = TodoListStrings.themeAquamarine)
         ),
         ColorSystemPreviewColors(
             background = darkDaiquiriScheme.background,
@@ -183,7 +191,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkDaiquiriScheme.onSecondaryContainer,
             primaryContainer = darkDaiquiriScheme.primaryContainer,
             name = "darkDaiquiri",
-            previewName = "Daiquiri"
+            previewName = stringResource(id = TodoListStrings.themeDaiquiri)
         ),
         ColorSystemPreviewColors(
             background = darkTacosScheme.background,
@@ -192,7 +200,7 @@ fun ColorSystemElements(
             onSecondaryContainer = darkTacosScheme.onSecondaryContainer,
             primaryContainer = darkTacosScheme.primaryContainer,
             name = "darkTacos",
-            previewName = "Tacos"
+            previewName = stringResource(id = TodoListStrings.themeTacos)
         ),
     )
 
@@ -204,7 +212,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightScheme.onSecondaryContainer,
             primaryContainer = lightScheme.primaryContainer,
             name = "light",
-            previewName = "Lavender"
+            previewName = stringResource(id = TodoListStrings.themeLavender)
         ),
         ColorSystemPreviewColors(
             background = lightGreenAppleScheme.background,
@@ -213,7 +221,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightGreenAppleScheme.onSecondaryContainer,
             primaryContainer = lightGreenAppleScheme.primaryContainer,
             name = "lightGreenApple",
-            previewName = "Green apple"
+            previewName = stringResource(id = TodoListStrings.themeGreenApple)
         ),
         ColorSystemPreviewColors(
             background = lightSakuraScheme.background,
@@ -222,7 +230,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightSakuraScheme.onSecondaryContainer,
             primaryContainer = lightSakuraScheme.primaryContainer,
             name = "lightSakura",
-            previewName = "Sakura"
+            previewName = stringResource(id = TodoListStrings.themeSakura)
         ),
         ColorSystemPreviewColors(
             background = lightAquamarineScheme.background,
@@ -231,7 +239,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightAquamarineScheme.onSecondaryContainer,
             primaryContainer = lightAquamarineScheme.primaryContainer,
             name = "lightAquamarine",
-            previewName = "Aquamarine"
+            previewName = stringResource(id = TodoListStrings.themeAquamarine)
         ),
         ColorSystemPreviewColors(
             background = lightDaiquiriScheme.background,
@@ -240,7 +248,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightDaiquiriScheme.onSecondaryContainer,
             primaryContainer = lightDaiquiriScheme.primaryContainer,
             name = "lightDaiquiri",
-            previewName = "Daiquiri"
+            previewName = stringResource(id = TodoListStrings.themeDaiquiri)
         ),
         ColorSystemPreviewColors(
             background = lightTacosScheme.background,
@@ -249,7 +257,7 @@ fun ColorSystemElements(
             onSecondaryContainer = lightTacosScheme.onSecondaryContainer,
             primaryContainer = lightTacosScheme.primaryContainer,
             name = "lightTacos",
-            previewName = "Tacos"
+            previewName = stringResource(id = TodoListStrings.themeTacos)
         )
     )
 

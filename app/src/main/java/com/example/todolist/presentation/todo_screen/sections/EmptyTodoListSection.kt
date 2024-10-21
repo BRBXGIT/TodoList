@@ -16,12 +16,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.todolist.R
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.ui.theme.mTypography
 
 @Composable
@@ -54,7 +56,7 @@ fun EmptyTodoListSection(
                 )
 
                 Text(
-                    text = "Nothing here, add todo",
+                    text = stringResource(id = TodoListStrings.emptyTodoList),
                     style = mTypography.bodyLarge
                 )
             }

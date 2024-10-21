@@ -16,9 +16,11 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.presentation.info_screen.sections.LogoSection
 import com.example.todolist.presentation.info_screen.sections.SocialNetworksSection
 import com.example.todolist.presentation.info_screen.sections.VersionPrivacyPolicySection
@@ -36,7 +38,7 @@ fun InfoScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Information",
+                        text = stringResource(id = TodoListStrings.info),
                         style = mTypography.titleMedium
                     )
                 },

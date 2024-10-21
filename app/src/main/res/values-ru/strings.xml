@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emptyTodoList">Пока что ничего нет :)</string>
+    <string name="todo">Сделать</string>
+    <string name="completedTodos">Выполнено</string>
+    <string name="todosWithAlarm">Задачи с будильником</string>
+
+
+    <string name="addTodoTitle">Название</string>
+    <string name="addTodoDescription">Описание</string>
+    <string name="addTodoTime">Добавить время</string>
+    <string name="addTodoCreateTodo">Создать</string>
+
+
+    <string name="info">Информация</string>
+    <string name="infoVersion">Версия</string>
+    <string name="infoPrivacyPolicy">Политика конфиденциальности</string>
+
+
+    <string name="settings">Настройки</string>
+    <string name="theme">Тема</string>
+    <string name="settingsDefaultTheme">Система</string>
+    <string name="settingsLightTheme">Светлая</string>
+    <string name="settingsDarkTheme">Темная</string>
+    <string name="settingsDynamicTheme">Динамическая</string>
+    <string name="themeLavender">Лаванда</string>
+    <string name="themeGreenApple">Зеленое яблоко</string>
+    <string name="themeSakura">Сакура</string>
+    <string name="themeAquamarine">Аквамарин</string>
+    <string name="themeDaiquiri">Дайкири</string>
+    <string name="themeTacos">Тако</string>
+</resources>

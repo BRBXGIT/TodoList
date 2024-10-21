@@ -22,11 +22,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.todolist.data.db.Todo
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.design_system.todo_screen_top_bar.TodoScreenTopBarVM
 import com.example.todolist.presentation.todo_screen.screen.TodoScreenVM
 import com.example.todolist.ui.theme.mShapes
@@ -74,7 +76,7 @@ fun CreateTodoBS(
             OutlinedTextField(
                 value = title,
                 onValueChange = { title = it },
-                label = { Text(text = "Title") },
+                label = { Text(text = stringResource(id = TodoListStrings.addTodoTitle)) },
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1
             )
@@ -82,7 +84,7 @@ fun CreateTodoBS(
             OutlinedTextField(
                 value = description,
                 onValueChange = { description = it },
-                label = { Text(text = "Description") },
+                label = { Text(text = stringResource(id = TodoListStrings.addTodoDescription)) },
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1
             )
@@ -107,7 +109,7 @@ fun CreateTodoBS(
                         )
 
                         Text(
-                            text = "Add time"
+                            text = stringResource(id = TodoListStrings.addTodoTime)
                         )
                     }
                 }
@@ -145,7 +147,7 @@ fun CreateTodoBS(
                     )
 
                     Text(
-                        text = "Create todo"
+                        text = stringResource(id = TodoListStrings.addTodoCreateTodo)
                     )
                 }
             }
