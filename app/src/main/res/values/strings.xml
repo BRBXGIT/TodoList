@@ -4,6 +4,14 @@
     <string name="todo">Todo</string>
     <string name="completedTodos">Completed</string>
     <string name="todosWithAlarm">Todos with alarm</string>
+    <string name="tutorial">
+        To create an alarm, choose time while creating todo, and after todo
+        created, swipe it to right :)
+    </string>
+    <string name="addAlarm">Add alarm</string>
+    <string name="removeAlarm">Remove alarm</string>
+    <string name="alarmAdded">Alarm added</string>
+    <string name="alarmRemoved">Alarm removed</string>
 
 
     <string name="addTodoTitle">Title</string>

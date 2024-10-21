@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.core.content.ContextCompat
 import com.example.todolist.design_system.snackbars.SnackbarController
 import com.example.todolist.design_system.snackbars.SnackbarEvent
@@ -43,7 +43,7 @@ fun CheckPermissions(
         }
     )
 
-    val notificationPermissionGranted by rememberSaveable {
+    val notificationPermissionGranted by remember {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             mutableStateOf(
                 ContextCompat.checkSelfPermission(

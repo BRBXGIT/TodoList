@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.todolist.common.app_settings.AppSettingsVM
 import com.example.todolist.design_system.todo_list_strings.TodoListStrings
@@ -136,7 +137,9 @@ fun RowScope.ThemeElement(
             style = mTypography.labelLarge.copy(
                 color = if(chosen) mColors.onPrimaryContainer else mColors.onBackground,
                 fontWeight = if(chosen) FontWeight.Bold else FontWeight.Normal
-            )
+            ),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
         )
     }
 }

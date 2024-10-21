@@ -15,9 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.todolist.design_system.todo_list_icons.TodoListIcons
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import com.example.todolist.ui.theme.mColors
 import com.example.todolist.ui.theme.mShapes
 import com.example.todolist.ui.theme.mTypography
@@ -57,8 +59,7 @@ fun TutorialSection(
                 )
 
                 Text(
-                    text = "To create an alarm choose time while creating todo, and after todo " +
-                            "created swipe it to right, than click add alarm :)",
+                    text = stringResource(id = TodoListStrings.tutorial),
                     style = mTypography.bodyMedium.copy(
                         fontWeight = FontWeight.Bold,
                     )

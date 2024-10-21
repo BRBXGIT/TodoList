@@ -7,15 +7,23 @@ object TodoListStrings {
     val todo = R.string.todo
     val completedTodos = R.string.completedTodos
     val todosWithAlarm = R.string.todosWithAlarm
+    val tutorial = R.string.tutorial
+    val addAlarm = R.string.addAlarm
+    val removeAlarm = R.string.removeAlarm
+    val alarmAdded = R.string.alarmAdded
+    val alarmRemoved = R.string.alarmRemoved
+
 
     val addTodoTitle = R.string.addTodoTitle
     val addTodoDescription = R.string.addTodoDescription
     val addTodoTime = R.string.addTodoTime
     val addTodoCreateTodo = R.string.addTodoCreateTodo
 
+
     val info = R.string.info
     val infoVersion = R.string.infoVersion
     val infoPrivacyPolicy = R.string.infoPrivacyPolicy
+
 
     val settings = R.string.settings
     val theme = R.string.theme
