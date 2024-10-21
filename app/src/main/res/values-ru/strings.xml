@@ -3,15 +3,17 @@
     <string name="emptyTodoList">Пока что ничего нет :)</string>
     <string name="todo">Сделать</string>
     <string name="completedTodos">Выполнено</string>
-    <string name="todosWithAlarm">Задачи с будильником</string>
+    <string name="todosWithAlarm">Задачи с уведомлением</string>
     <string name="tutorial">
         Что-бы задать будильник - во время создания дела выберите время, и после того
         как оно создано, смахните его вправо :)
     </string>
-    <string name="addAlarm">Добавить уведом-ие</string>
-    <string name="removeAlarm">Удалить уведом-ие</string>
+    <string name="addAlarm">Добавить ув-ие</string>
+    <string name="removeAlarm">Удалить ув-ие</string>
     <string name="alarmAdded">Уведомление добавлено</string>
     <string name="alarmRemoved">Уведомление удалено</string>
+    <string name="notificationsGranted">Уведомления разрешены</string>
+    <string name="notificationsDenied">Вы всегда можете включить их в настройках :)</string>
 
 
     <string name="addTodoTitle">Название</string>

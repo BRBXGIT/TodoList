@@ -12,6 +12,8 @@
     <string name="removeAlarm">Remove alarm</string>
     <string name="alarmAdded">Alarm added</string>
     <string name="alarmRemoved">Alarm removed</string>
+    <string name="notificationsGranted">Notifications granted</string>
+    <string name="notificationsDenied">You can always enable it in settings :)</string>
 
 
     <string name="addTodoTitle">Title</string>

@@ -12,6 +12,8 @@ object TodoListStrings {
     val removeAlarm = R.string.removeAlarm
     val alarmAdded = R.string.alarmAdded
     val alarmRemoved = R.string.alarmRemoved
+    val notificationsGranted = R.string.notificationsGranted
+    val notificationsDenied = R.string.notificationsDenied
 
 
     val addTodoTitle = R.string.addTodoTitle

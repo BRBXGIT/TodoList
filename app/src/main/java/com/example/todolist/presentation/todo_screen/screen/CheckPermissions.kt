@@ -11,9 +11,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.res.stringResource
 import androidx.core.content.ContextCompat
 import com.example.todolist.design_system.snackbars.SnackbarController
 import com.example.todolist.design_system.snackbars.SnackbarEvent
+import com.example.todolist.design_system.todo_list_strings.TodoListStrings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -22,6 +24,9 @@ fun CheckPermissions(
     scope: CoroutineScope,
     context: Context
 ) {
+    val notificationsGranted = stringResource(id = TodoListStrings.notificationsGranted)
+    val notificationsDenied = stringResource(id = TodoListStrings.notificationsDenied)
+
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission(),
         onResult = { result ->
@@ -29,13 +34,13 @@ fun CheckPermissions(
                 if(result) {
                     SnackbarController.sendEvent(
                         SnackbarEvent(
-                            message = "Notifications granted"
+                            message = notificationsGranted
                         )
                     )
                 } else {
                     SnackbarController.sendEvent(
                         SnackbarEvent(
-                            message = "You can always enable it in settings :)"
+                            message = notificationsDenied
                         )
                     )
                 }
