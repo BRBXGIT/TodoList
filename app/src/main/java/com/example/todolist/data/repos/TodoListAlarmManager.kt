@@ -8,6 +8,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -28,25 +30,26 @@ class TodoListAlarmManager @Inject constructor(
                     context,
                     todo.id.hashCode(),
                     intent,
-                    PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                    PendingIntent.FLAG_IMMUTABLE
                 )
 
-                //Cancel alarm if it exists, doesn't work
-                alarmManager.cancel(pendingIntent)
+                val hours = todo.time.split(":")[0].toInt()
+                val minutes = todo.time.split(":")[1].toInt()
 
-                val hours = todo.time.split(":")[0].take(2).toInt()
-                val minutes = todo.time.split(":")[1].take(2).toInt()
+                val formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy")
+                val dayOfYear = LocalDate.parse(todo.date, formatter).dayOfYear
+                val year = LocalDate.parse(todo.date, formatter).year
+
                 val calendar = Calendar.getInstance().apply {
+                    set(Calendar.YEAR, year)
+                    set(Calendar.DAY_OF_YEAR, dayOfYear)
                     set(Calendar.HOUR_OF_DAY, hours)
                     set(Calendar.MINUTE, minutes)
                     set(Calendar.SECOND, 0)
                     set(Calendar.MILLISECOND, 0)
-                    if(timeInMillis <= System.currentTimeMillis()) {
-                        add(Calendar.DAY_OF_MONTH, 1)
-                    }
                 }
 
-                alarmManager.set(
+                alarmManager.setExactAndAllowWhileIdle(
                     AlarmManager.RTC_WAKEUP,
                     calendar.timeInMillis,
                     pendingIntent
@@ -60,7 +63,7 @@ class TodoListAlarmManager @Inject constructor(
             repository.getTodoById(id).collect { todo ->
                 val pendingIntent = PendingIntent.getBroadcast(
                     context,
-                    todo.id,
+                    todo.id.hashCode(),
                     Intent(context, TodoListAlarmReceiver::class.java),
                     PendingIntent.FLAG_IMMUTABLE
                 )
