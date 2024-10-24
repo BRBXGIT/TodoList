@@ -10,12 +10,13 @@ import com.example.todolist.R
 
 class TodoListAlarmReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
+
         val todoTitle = intent?.getStringExtra("todoTitle")
 
         val notification = NotificationCompat.Builder(context, "tl_notifications")
             .setSmallIcon(R.drawable.ic_todo_list)
             .setContentTitle("TodoList")
-            .setContentText("Time to to do $todoTitle")
+            .setContentText("$todoTitle")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
