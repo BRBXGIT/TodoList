@@ -21,9 +21,9 @@ class TodoListAlarmManager @Inject constructor(
             }
             val pendingIntent = PendingIntent.getBroadcast(
                 context,
-                todo.id,
+                todo.id.hashCode(),
                 intent,
-                PendingIntent.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
 
             val hours = todo.time.split(":")[0].toInt()
@@ -54,7 +54,7 @@ class TodoListAlarmManager @Inject constructor(
         repository.getTodoById(id).collect { todo ->
             val pendingIntent = PendingIntent.getBroadcast(
                 context,
-                todo.id,
+                todo.id.hashCode(),
                 Intent(context, TodoListAlarmReceiver::class.java),
                 PendingIntent.FLAG_IMMUTABLE
             )
