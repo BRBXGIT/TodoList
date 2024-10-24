@@ -31,4 +31,4 @@
 - English US
 - Russian
 ### App preview
-- https://github.com/user-attachments/assets/3e73e771-b5bb-4c4a-90f7-874471a6e12d
+https://github.com/user-attachments/assets/3e73e771-b5bb-4c4a-90f7-874471a6e12d
